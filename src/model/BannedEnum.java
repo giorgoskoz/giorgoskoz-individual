@@ -9,8 +9,8 @@ package model;
  *
  * @author giorgoskoz
  */
-public enum RoleEnum {
+public enum BannedEnum {
     
-    RESTRICTED_USER, REGULAR_USER, VIEWER, EDITOR, DELETER, ADMIN, SUPER_ADMIN
+    NOT_BANNED, BANNED
     
 }
