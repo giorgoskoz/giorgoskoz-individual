@@ -46,8 +46,10 @@ INSERT INTO `messages` VALUES(default, NOW(), 16, 15, 'I\'m coming to pick it up
 
 SELECT * FROM `messages` ORDER BY date ASC;
 
-
+UPDATE MESSAGES SET `deleted_by_sender` = 0 WHERE `message_id` = 15; 
 
 DELETE FROM `messages` WHERE `message_id` = 13;
+
+SELECT * FROM `messages` WHERE `sender_id` = 16 || `receiver_id` = 16 ORDER BY `date` ASC
 
 

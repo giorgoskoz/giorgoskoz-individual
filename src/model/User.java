@@ -47,7 +47,14 @@ public class User {
                 role = RoleEnum.EDITOR;
                 break;
         }
-        this.banStatus = banStatus;
+        switch(banStatusId){
+            case 0:
+                banStatus = BannedEnum.NOT_BANNED;
+                break;
+            case 1:
+                banStatus = BannedEnum.NOT_BANNED;
+                break;
+        }
     }
     
     @Override
