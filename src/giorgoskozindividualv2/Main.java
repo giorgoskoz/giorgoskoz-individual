@@ -5,6 +5,11 @@
  */
 package giorgoskozindividualv2;
 
+import giorgoskozindividualv2.dao.UserDao;
+import giorgoskozindividualv2.db.Database;
+import java.util.ArrayList;
+import model.User;
+
 /**
  *
  * @author giorgoskoz
@@ -16,6 +21,12 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        UserDao udao = new UserDao();
+        String sql = "SELECT * FROM `users`";
+        ArrayList<User> users = udao.fetchAllUsers();
+        System.out.println(users);
+        
     }
     
 }

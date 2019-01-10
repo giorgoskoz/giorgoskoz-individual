@@ -20,12 +20,39 @@ public class User {
     public User() {
     }
 
-    public User(int id, String username, String password, RoleEnum role, BannedEnum banStatus) {
+    public User(int id, String username, String password, int roleId, int banStatusId) {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.role = role;
+        switch(roleId){
+            case 1:
+                role = RoleEnum.RESTRICTED_USER;
+                break;
+            case 2:
+                role = RoleEnum.REGULAR_USER;
+                break;
+            case 3:
+                role = RoleEnum.VIEWER;
+                break;
+            case 4:
+                role = RoleEnum.EDITOR;
+                break;
+            case 5:
+                role = RoleEnum.DELETER;
+                break;
+            case 6:
+                role = RoleEnum.ADMIN;
+                break;
+            case 7:
+                role = RoleEnum.EDITOR;
+                break;
+        }
         this.banStatus = banStatus;
+    }
+    
+    @Override
+    public String toString() {
+        return "id: " + id + "  |  username: " + username + "  |  password: " + password + "  | role: " + role + "  | banned: " + banStatus + "\n";
     }
 
     public int getId() {
