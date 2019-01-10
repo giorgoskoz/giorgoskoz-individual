@@ -76,8 +76,9 @@ public class Dao {
             PreparedStatement stmt = con.prepareStatement("SELECT * FROM `messages` WHERE `sender_id`= " + user.getId() + " || `receiver_id` = " + user.getId() + " ORDER BY `date` ASC");
             rs = stmt.executeQuery();
             while (rs.next()) {
-                messages.add(new Message(rs.getInt(1), rs.getTimestamp(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getInt(6), rs.getInt(7)));
-                
+                if ((rs.getInt(6) == 0) && (rs.getInt(7) == 0)) {
+                    messages.add(new Message(rs.getInt(1), rs.getTimestamp(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getInt(6), rs.getInt(7)));
+                }
             }
             con.close();
             return messages;
