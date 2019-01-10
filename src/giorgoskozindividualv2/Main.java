@@ -23,12 +23,16 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         
+        User user = new User(16, "q", "q", 0, 0);
         Dao udao = new Dao();
         String sql = "SELECT * FROM `users`";
         ArrayList<User> users = udao.fetchAllUsers();
         ArrayList<Message> messages = udao.fetchAllMessages();
+        ArrayList<Message> qMessages = udao.fetchUserMessages(user);
         System.out.println(users);
         System.out.println(messages);
+        System.out.println(user.getId());
+        System.out.println(qMessages);
         
     }
     

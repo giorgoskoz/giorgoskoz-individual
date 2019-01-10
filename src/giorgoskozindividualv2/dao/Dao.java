@@ -67,4 +67,26 @@ public class Dao {
         return messages;
     }
     
+    public ArrayList<Message> fetchUserMessages(User user){
+        ArrayList<Message> messages = new ArrayList<>();
+        ResultSet rs = null;
+        Database db = new Database();
+        try {
+            Connection con = db.connectToDB();
+            PreparedStatement stmt = con.prepareStatement("SELECT * FROM `messages` WHERE `sender_id`= " + user.getId() + " || `receiver_id` = " + user.getId() + " ORDER BY `date` ASC");
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                messages.add(new Message(rs.getInt(1), rs.getTimestamp(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getInt(6), rs.getInt(7)));
+                
+            }
+            con.close();
+            return messages;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+        
+        return messages;
+    }
+    
 }
