@@ -6,6 +6,7 @@
 package model;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  *
@@ -14,7 +15,7 @@ import java.sql.Date;
 public class Message {
     
     private int messageId;
-    private Date date;
+    private Timestamp date;
     private int senderId;
     private int receiverId;
     private String content;
@@ -24,7 +25,7 @@ public class Message {
     public Message() {
     }
 
-    public Message(int messageId, Date date, int senderId, int receiverId, String content, int deletedBySender, int deletedByReceiver) {
+    public Message(int messageId, Timestamp date, int senderId, int receiverId, String content, int deletedBySender, int deletedByReceiver) {
         this.messageId = messageId;
         this.date = date;
         this.senderId = senderId;
@@ -36,7 +37,7 @@ public class Message {
     
     @Override
     public String toString() {
-        return "Message id: " + messageId + "  |  Date Sent: " + date + "  |  Sender:" + senderId + "  |  Receiver: " + receiverId + "\n" + ANSI_RED + content + "\n";
+        return "Message id: " + messageId + "  |  Date Sent: " + date + "  |  Sender:" + senderId + "  |  Receiver: " + receiverId + "\n" + content + "\n";
     }
 
     public int getMessageId() {
@@ -47,11 +48,11 @@ public class Message {
         this.messageId = messageId;
     }
 
-    public Date getDate() {
+    public Timestamp getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Timestamp date) {
         this.date = date;
     }
 

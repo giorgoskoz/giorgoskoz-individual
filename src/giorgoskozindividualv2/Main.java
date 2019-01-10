@@ -5,9 +5,10 @@
  */
 package giorgoskozindividualv2;
 
-import giorgoskozindividualv2.dao.UserDao;
+import giorgoskozindividualv2.dao.Dao;
 import giorgoskozindividualv2.db.Database;
 import java.util.ArrayList;
+import model.Message;
 import model.User;
 
 /**
@@ -22,10 +23,12 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        UserDao udao = new UserDao();
+        Dao udao = new Dao();
         String sql = "SELECT * FROM `users`";
         ArrayList<User> users = udao.fetchAllUsers();
+        ArrayList<Message> messages = udao.fetchAllMessages();
         System.out.println(users);
+        System.out.println(messages);
         
     }
     

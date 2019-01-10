@@ -37,5 +37,17 @@ INSERT INTO `users` VALUES(default, 'q', 'q', 6, 0);
 INSERT INTO `users` VALUES(default, 'deleter1', 'deleter1', 5, 0);
 INSERT INTO `users` VALUES(default, 'alect', 'alect', 2, 0);
 
+SELECT * FROM `users`;
+
+INSERT INTO `messages` VALUES(default, NOW(), 15, 16, 'which button on the key unlocks the aston again?', 0, 0);
+INSERT INTO `messages` VALUES(default, NOW(), 18, 16, 'oh so I get the lada again?', 0, 0);
+INSERT INTO `messages` VALUES(default, NOW(), 16, 18, 'even IT is too good for you', 0, 0);
+INSERT INTO `messages` VALUES(default, NOW(), 16, 15, 'I\'m coming to pick it up, it\'s the bus for you', 0, 0);
+
+SELECT * FROM `messages` ORDER BY date ASC;
+
+
+
+DELETE FROM `messages` WHERE `message_id` = 13;
 
 

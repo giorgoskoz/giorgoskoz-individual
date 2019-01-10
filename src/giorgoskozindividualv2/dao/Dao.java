@@ -10,27 +10,28 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import model.Message;
 import model.User;
 
 /**
  *
  * @author giorgoskoz
  */
-public class UserDao {
+public class Dao {
     
     private Database db;
     
-    public UserDao() {
+    public Dao() {
         db = new Database();
     }
     
-    public ArrayList<User> fetchAllUsers(){
+    public ArrayList fetchAllUsers(){
         ArrayList<User> users = new ArrayList<>();
         ResultSet rs = null;
         Database db = new Database();
         try {
             Connection con = db.connectToDB();
-            PreparedStatement stmt = con.prepareStatement("SELECT * FROM `users` ORDER BY role DESC");
+            PreparedStatement stmt = con.prepareStatement("SELECT * FROM `users` ORDER BY `username` DESC");
             rs = stmt.executeQuery();
             while (rs.next()) {
                 users.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5)));
@@ -43,6 +44,27 @@ public class UserDao {
             e.printStackTrace();
         }
         return users;
+    }
+    
+    public ArrayList<Message> fetchAllMessages(){
+        ArrayList<Message> messages = new ArrayList<>();
+        ResultSet rs = null;
+        Database db = new Database();
+        try {
+            Connection con = db.connectToDB();
+            PreparedStatement stmt = con.prepareStatement("SELECT * FROM `messages` ORDER BY `date` ASC");
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                messages.add(new Message(rs.getInt(1), rs.getTimestamp(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getInt(6), rs.getInt(7)));
+                
+            }
+            con.close();
+            return messages;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+        return messages;
     }
     
 }
