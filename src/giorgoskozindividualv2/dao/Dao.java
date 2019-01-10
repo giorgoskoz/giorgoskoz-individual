@@ -67,13 +67,15 @@ public class Dao {
         return messages;
     }
     
-    public ArrayList<Message> fetchUserMessages(User user){
+    public ArrayList<Message> fetchUserMessages(User sender, User receiver){
         ArrayList<Message> messages = new ArrayList<>();
         ResultSet rs = null;
         Database db = new Database();
         try {
             Connection con = db.connectToDB();
-            PreparedStatement stmt = con.prepareStatement("SELECT * FROM `messages` WHERE `sender_id`= " + user.getId() + " || `receiver_id` = " + user.getId() + " ORDER BY `date` ASC");
+            PreparedStatement stmt = con.prepareStatement("SELECT * FROM `messages` WHERE `sender_id`= ? || `receiver_id` = ? ORDER BY `date` ASC");
+            stmt.setInt(1, sender.getId());
+            stmt.setInt(2, receiver.getId());
             rs = stmt.executeQuery();
             while (rs.next()) {
                 if ((rs.getInt(6) == 0) && (rs.getInt(7) == 0)) {

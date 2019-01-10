@@ -28,7 +28,7 @@ public class Main {
         String sql = "SELECT * FROM `users`";
         ArrayList<User> users = udao.fetchAllUsers();
         ArrayList<Message> messages = udao.fetchAllMessages();
-        ArrayList<Message> qMessages = udao.fetchUserMessages(user);
+        ArrayList<Message> qMessages = udao.fetchUserMessages(user, user);
         System.out.println(users);
         System.out.println(messages);
         System.out.println(user.getId());
