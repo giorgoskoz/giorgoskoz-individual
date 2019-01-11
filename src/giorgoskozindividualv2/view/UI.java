@@ -11,6 +11,28 @@ package giorgoskozindividualv2.view;
  */
 public class UI {
     
+    public static void welcome1(){
+        System.out.println("Welcome 1");
+    }
     
+    public static void welcome2(){
+        System.out.println("Welcome 2");
+    }
+    
+    public static void promptUsername(){
+        System.out.println("Username: ");
+    }
+    
+    public static void promptPassword(){
+        System.out.println("Password: ");
+    }
+    
+    public static void promptWrongUsername(){
+        System.out.println("No such username");
+    }
+    
+    public static void promptWrongPassword(){
+        System.out.println("Wrong password");
+    }
     
 }

@@ -25,6 +25,27 @@ public class Dao {
         db = new Database();
     }
     
+    public int fetchDailypass(){
+        int dailypass = 0;
+        ResultSet rs = null;
+        Database db = new Database();
+        try {
+            Connection con = db.connectToDB();
+            PreparedStatement stmt = con.prepareStatement("SELECT * FROM `dailypass`");
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                dailypass = rs.getInt(3);
+                
+            }
+            con.close();
+            return dailypass;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+        return dailypass;
+    }
+    
     public User fetchUserByUsername(String username) {
         User user = new User();
         ResultSet rs = null;

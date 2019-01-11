@@ -7,6 +7,8 @@ package giorgoskozindividualv2;
 
 import giorgoskozindividualv2.dao.Dao;
 import giorgoskozindividualv2.db.Database;
+import giorgoskozindividualv2.login.LoginSession;
+import giorgoskozindividualv2.utils.Utils;
 import java.util.ArrayList;
 import model.Message;
 import model.User;
@@ -23,18 +25,23 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        User user = new User(16, "q", "q", 0, 0);
-        Dao udao = new Dao();
-        String sql = "SELECT * FROM `users`";
-        ArrayList<User> users = udao.fetchAllUsers();
-        ArrayList<Message> messages = udao.fetchAllMessages();
-        ArrayList<Message> qMessages = udao.fetchUserMessages(user, user);
-        System.out.println(users);
-        System.out.println(messages);
-        System.out.println(user.getId());
-        System.out.println(qMessages);
-        User q = udao.fetchUserByUsername("q");
-        System.out.println(q);
+        LoginSession loginSession = new LoginSession();
+        System.out.println(loginSession.getLoggedUser());
+//        User user = new User(16, "q", "q", 0, 0);
+//        Dao udao = new Dao();
+//        String sql = "SELECT * FROM `users`";
+//        ArrayList<User> users = udao.fetchAllUsers();
+//        ArrayList<Message> messages = udao.fetchAllMessages();
+//        ArrayList<Message> qMessages = udao.fetchUserMessages(user, user);
+//        System.out.println(users);
+//        System.out.println(messages);
+//        System.out.println(user.getId());
+//        System.out.println(qMessages);
+//        User q = udao.fetchUserByUsername("q");
+//        System.out.println(q);
+//        String pass = Utils.readPassword();
+//        System.out.println(pass);
+//        System.out.println(udao.fetchDailypass());
         
     }
     
