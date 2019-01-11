@@ -3,12 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package giorgoskozindividualv2.loginNUtils;
+package giorgoskozindividualv2.login;
+
+import model.User;
 
 /**
  *
  * @author giorgoskoz
  */
-public class Login {
+public class LoginSession {
+    
+    private User loggedUser;
     
 }

@@ -25,6 +25,31 @@ public class Dao {
         db = new Database();
     }
     
+    public User fetchUserByUsername(String username) {
+        User user = new User();
+        ResultSet rs = null;
+        Database db = new Database();
+        try {
+            Connection con = db.connectToDB();
+            PreparedStatement stmt = con.prepareStatement("SELECT * FROM `users` WHERE `username`=?");
+            stmt.setString(1, username);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                user.setId(rs.getInt(1));
+                user.setUsername(rs.getString(2));
+                user.setPassword(rs.getString(3));
+                user.setRole(rs.getInt(4));
+                user.setBanStatus(rs.getInt(5));
+            }
+            con.close();
+            return user;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+        return user;
+    }
+    
     public ArrayList fetchAllUsers(){
         ArrayList<User> users = new ArrayList<>();
         ResultSet rs = null;

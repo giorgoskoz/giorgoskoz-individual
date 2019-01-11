@@ -24,37 +24,8 @@ public class User {
         this.id = id;
         this.username = username;
         this.password = password;
-        switch(roleId){
-            case 1:
-                role = RoleEnum.RESTRICTED_USER;
-                break;
-            case 2:
-                role = RoleEnum.REGULAR_USER;
-                break;
-            case 3:
-                role = RoleEnum.VIEWER;
-                break;
-            case 4:
-                role = RoleEnum.EDITOR;
-                break;
-            case 5:
-                role = RoleEnum.DELETER;
-                break;
-            case 6:
-                role = RoleEnum.ADMIN;
-                break;
-            case 7:
-                role = RoleEnum.EDITOR;
-                break;
-        }
-        switch(banStatusId){
-            case 0:
-                banStatus = BannedEnum.NOT_BANNED;
-                break;
-            case 1:
-                banStatus = BannedEnum.NOT_BANNED;
-                break;
-        }
+        setRole(roleId);
+        setBanStatus(banStatusId);
     }
     
     @Override
@@ -90,16 +61,45 @@ public class User {
         return role;
     }
 
-    public void setRole(RoleEnum role) {
-        this.role = role;
+    public void setRole(int roleId) {
+        switch(roleId){
+            case 1:
+                role = RoleEnum.RESTRICTED_USER;
+                break;
+            case 2:
+                role = RoleEnum.REGULAR_USER;
+                break;
+            case 3:
+                role = RoleEnum.VIEWER;
+                break;
+            case 4:
+                role = RoleEnum.EDITOR;
+                break;
+            case 5:
+                role = RoleEnum.DELETER;
+                break;
+            case 6:
+                role = RoleEnum.ADMIN;
+                break;
+            case 7:
+                role = RoleEnum.EDITOR;
+                break;
+        }
     }
 
     public BannedEnum getBanStatus() {
         return banStatus;
     }
 
-    public void setBanStatus(BannedEnum banStatus) {
-        this.banStatus = banStatus;
+    public void setBanStatus(int banStatusId) {
+        switch(banStatusId){
+            case 0:
+                banStatus = BannedEnum.NOT_BANNED;
+                break;
+            case 1:
+                banStatus = BannedEnum.NOT_BANNED;
+                break;
+        }
     }
     
     
