@@ -113,6 +113,11 @@ public class Dao {
         return messages;
     }
     
+    public ArrayList<Message> fetchUserMessages(User user) {
+         return fetchUserMessages(user,user);
+        
+    }
+    
     public ArrayList<Message> fetchUserMessages(User sender, User receiver){
         ArrayList<Message> messages = new ArrayList<>();
         ResultSet rs = null;
