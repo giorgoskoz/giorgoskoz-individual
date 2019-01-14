@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package giorgoskozindividualv2.controller.interfaces;
+package giorgoskozindividualv2.model;
 
 /**
  *
  * @author giorgoskoz
  */
-public interface RestrictedUserControllerInterface {
+public enum RoleEnum {
+    
+    RESTRICTED_USER, REGULAR_USER, VIEWER, EDITOR, DELETER, ADMIN, SUPER_ADMIN
     
 }

@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package giorgoskozindividualv2.controller.interfaces;
+package giorgoskozindividualv2.model;
 
 /**
  *
  * @author giorgoskoz
  */
-public interface SuperAdminControllerInterface {
+public enum BannedEnum {
+    
+    NOT_BANNED, BANNED
     
 }

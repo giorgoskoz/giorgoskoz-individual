@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package giorgoskozindividualv2.controller;
+package giorgoskozindividualv2.model.interfaces;
 
 /**
  *
  * @author giorgoskoz
  */
-public class RegularUserController {
+public interface UserInterface {
     
 }

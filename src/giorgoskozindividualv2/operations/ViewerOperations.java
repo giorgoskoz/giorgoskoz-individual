@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package giorgoskozindividualv2.controller;
+package giorgoskozindividualv2.operations;
+
+import giorgoskozindividualv2.operations.interfaces.ViewerOperationsInterface;
 
 /**
  *
  * @author giorgoskoz
  */
-public class AdminController {
+public class ViewerOperations extends RegularUserOperations implements ViewerOperationsInterface {
     
 }

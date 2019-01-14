@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.interfaces;
+package giorgoskozindividualv2.operations;
+
+import giorgoskozindividualv2.operations.interfaces.RestrictedUserOperationsInterface;
 
 /**
  *
  * @author giorgoskoz
  */
-public interface UserInterface {
+public class RestrictedUserOperations implements RestrictedUserOperationsInterface {
     
 }

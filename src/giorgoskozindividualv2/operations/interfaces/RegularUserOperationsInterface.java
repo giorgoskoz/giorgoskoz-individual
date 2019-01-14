@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package giorgoskozindividualv2.operations.interfaces;
 
 /**
  *
  * @author giorgoskoz
  */
-public enum RoleEnum {
-    
-    RESTRICTED_USER, REGULAR_USER, VIEWER, EDITOR, DELETER, ADMIN, SUPER_ADMIN
+public interface RegularUserOperationsInterface {
     
 }

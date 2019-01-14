@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
-import model.User;
+import giorgoskozindividualv2.model.User;
 
 /**
  *

@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package giorgoskozindividualv2.operations.interfaces;
 
 /**
  *
  * @author giorgoskoz
  */
-public enum BannedEnum {
-    
-    NOT_BANNED, BANNED
+public interface AdminOperationsInterface {
     
 }

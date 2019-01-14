@@ -10,8 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import model.Message;
-import model.User;
+import giorgoskozindividualv2.model.Message;
+import giorgoskozindividualv2.model.User;
 
 /**
  *

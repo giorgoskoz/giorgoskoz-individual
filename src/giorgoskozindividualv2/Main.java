@@ -10,8 +10,8 @@ import giorgoskozindividualv2.db.Database;
 import giorgoskozindividualv2.login.LoginSession;
 import giorgoskozindividualv2.utils.Utils;
 import java.util.ArrayList;
-import model.Message;
-import model.User;
+import giorgoskozindividualv2.model.Message;
+import giorgoskozindividualv2.model.User;
 
 /**
  *
