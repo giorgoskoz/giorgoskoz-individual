@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 import giorgoskozindividualv2.model.User;
+import giorgoskozindividualv2.view.UI;
 
 /**
  *
@@ -20,53 +21,60 @@ import giorgoskozindividualv2.model.User;
  */
 public class LoginSession {
     private User loggedUser;
+    private Dao udao;
+    private UI ui;
     
-    public LoginSession() {
-        Dao udao = new Dao();
-        EngUI.welcome1();
+    
+    public LoginSession(Dao udao, UI ui) {
+        this.udao = udao;
+        this.ui = ui;
+        System.out.println(ui.getSplashScreen());;
         int dailypassInput = Utils.readInputInt();
         if (dailypassInput != udao.fetchDailypass()) {
             System.exit(0);
         }
-        EngUI.welcome2();
+        System.out.println(ui.getWelcome());
         String existingUsername = usernameInputAndCheck(getUsersMap());
         loggedUser = passwordInputAndCheck(existingUsername, getUsersMap());
         
     }
     
     public User passwordInputAndCheck(String username, Map<String, String> usersMap){
-        Dao udao = new Dao();
-        EngUI.promptPassword();
+        System.out.println(ui.getPromptPassword());
         String passwordInput = Utils.readPassword();
+        boolean found = false;
         for (String value : usersMap.values()) {
             if (passwordInput.equals(value)) {
                 return udao.fetchUserByUsername(username);
-            }else{
-                EngUI.promptWrongPassword();
-                passwordInputAndCheck(username, usersMap);
             }
+        }
+        if (!found) {
+            System.out.println(ui.getPromptWrongPassword());
+            passwordInputAndCheck(username, usersMap);
         }
         return null;
     }
     
     public String usernameInputAndCheck(Map<String, String> usersMap){
-        EngUI.promptUsername();
+        System.out.println(ui.getPromptUsername());
         String usernameInput = Utils.readInputString();
+        boolean found = false;
         for (String key : usersMap.keySet()) {
             if (usernameInput.equals(key)) {
+                found = true;
                 return usernameInput;
-            }else{
-                EngUI.promptWrongUsername();
-                usernameInputAndCheck(usersMap);
             }
         }
+        if (!found) {
+                System.out.println(ui.getPromptWrongUsername());
+                usernameInputAndCheck(usersMap);
+            }
         return null;
     }
     
     public Map getUsersMap(){
         Map<String, String> usersMap = new HashMap<>();
-        Dao udao = new Dao();
-        ArrayList<User> users = udao.fetchAllUsers();
+        ArrayList<User> users = udao.fetchAllUsers(); 
         for (User user : users) {
             usersMap.put(user.getUsername(), user.getPassword());
         }

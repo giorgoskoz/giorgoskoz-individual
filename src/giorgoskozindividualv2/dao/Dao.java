@@ -46,6 +46,25 @@ public class Dao {
         return dailypass;
     }
     
+    public String fetchUsernameByUserId(int userId) {
+        String username = null;
+        ResultSet rs = null;
+        Database db = new Database();
+        try {
+            Connection con = db.connectToDB();
+            PreparedStatement stmt = con.prepareStatement("SELECT * FROM `users` WHERE `user_id`=?");
+            stmt.setInt(1, userId);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                username = rs.getString(2);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+        return username;
+    }
+    
     public User fetchUserByUsername(String username) {
         User user = new User();
         ResultSet rs = null;

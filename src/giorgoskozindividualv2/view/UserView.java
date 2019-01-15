@@ -5,7 +5,9 @@
  */
 package giorgoskozindividualv2.view;
 
+import giorgoskozindividualv2.model.Message;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,7 +15,16 @@ import java.sql.ResultSet;
  */
 public class UserView {
     
-    public abstract ;
+    private AbstractUI ui;
+    
+    
+    
+    public void displayMessageArrayList(ArrayList<Message> messages) {
+        for (Message message : messages) {
+            
+            System.out.println(EngUI.promptId + message.getMessageId() + );
+        }
+    }
     
     public void displayAllUsers(ResultSet rs) {
         

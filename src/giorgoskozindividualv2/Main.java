@@ -12,6 +12,10 @@ import giorgoskozindividualv2.utils.Utils;
 import java.util.ArrayList;
 import giorgoskozindividualv2.model.Message;
 import giorgoskozindividualv2.model.User;
+import giorgoskozindividualv2.operations.RegularUserOperations;
+import giorgoskozindividualv2.operations.RestrictedUserOperations;
+import giorgoskozindividualv2.view.EngUI;
+import giorgoskozindividualv2.view.UI;
 
 /**
  *
@@ -24,9 +28,13 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Dao dao = new Dao();
+        EngUI ui = new EngUI();
+        LoginSession loginSession = new LoginSession(dao, ui);
+        RestrictedUserOperations ruo = new RestrictedUserOperations((loginSession.getLoggedUser()), dao, ui);
+        ruo.readOwnMessages();
+        System.out.println("**BANG!**");
         
-        LoginSession loginSession = new LoginSession();
-        System.out.println(loginSession.getLoggedUser());
 //        User user = new User(16, "q", "q", 0, 0);
 //        Dao udao = new Dao();
 //        String sql = "SELECT * FROM `users`";

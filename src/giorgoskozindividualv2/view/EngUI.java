@@ -9,15 +9,64 @@ package giorgoskozindividualv2.view;
  *
  * @author giorgoskoz
  */
-public class EngUI extends AbstractUI {
+public class EngUI implements UI {
     
-    String splashScreen = "FAKE error";
-    String welcome = "Welcome";
-    String promptUsername = "Username: ";
-    String promptPassword = "Password: ";
-    String promptWrongUsername = "No such username";
-    String promptWrongPassword = "Wrong password";
+    private String splashScreen = "FAKE error";
+    private String welcome = "Welcome";
+    private String promptUsername = "Username: ";
+    private String promptPassword = "Password: ";
+    private String promptWrongUsername = "No such username";
+    private String promptWrongPassword = "Wrong password";
+    private String promptId = "id: ";
+    private String promptDate = "Date: ";
+    private String promptSender = "Sender: ";
+    private String promptReceiver = "Receiver: ";
+
+    public String getPromptSender() {
+        return promptSender;
+    }
+
+    public String getPromptReceiver() {
+        return promptReceiver;
+    }
+
+    public String getPromptDate() {
+        return promptDate;
+    }
+
+    public String getSplashScreen() {
+        return splashScreen;
+    }
+
+    public String getWelcome() {
+        return welcome;
+    }
+
+    public String getPromptUsername() {
+        return promptUsername;
+    }
+
+    public String getPromptPassword() {
+        return promptPassword;
+    }
+
+    public String getPromptWrongUsername() {
+        return promptWrongUsername;
+    }
+
+    public String getPromptWrongPassword() {
+        return promptWrongPassword;
+    }
+
+    public String getPromptId() {
+        return promptId;
+    }
     
+    
+    
+}
+    
+
 //    public static void welcome1(){
 //        System.out.println("Welcome 1");
 //    }
@@ -41,5 +90,3 @@ public class EngUI extends AbstractUI {
 //    public static void promptWrongPassword(){
 //        System.out.println("Wrong password");
 //    }
-    
-}

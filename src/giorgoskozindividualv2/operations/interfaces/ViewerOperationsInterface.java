@@ -5,13 +5,15 @@
  */
 package giorgoskozindividualv2.operations.interfaces;
 
+import giorgoskozindividualv2.model.User;
+
 /**
  *
  * @author giorgoskoz
  */
 public interface ViewerOperationsInterface {
     
-    public void viewOtherUserMessages(RestrictedUser user);
-    public void viewAllMessages();
+    public void readOtherUserMessages(User user);
+    public void readAllMessages();
     
 }
