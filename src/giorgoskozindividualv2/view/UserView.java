@@ -5,10 +5,22 @@
  */
 package giorgoskozindividualv2.view;
 
+import java.sql.ResultSet;
+
 /**
  *
  * @author giorgoskoz
  */
 public class UserView {
+    
+    public abstract ;
+    
+    public void displayAllUsers(ResultSet rs) {
+        
+    }
+    
+    public void displayAllMessages(ResultSet rs) {
+        
+    }
     
 }

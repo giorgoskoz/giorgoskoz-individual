@@ -3,15 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package giorgoskozindividualv2.operations.interfaces;
+package giorgoskozindividualv2.view;
 
 /**
  *
  * @author giorgoskoz
  */
-public interface ViewerOperationsInterface {
+public class AbstractUI {
     
-    public void viewOtherUserMessages(RestrictedUser user);
-    public void viewAllMessages();
+    String splashScreen;
+    String welcome;
+    String promptUsername;
+    String promptPassword;
+    String promptWrongUsername;
+    String promptWrongPassword;
     
 }

@@ -11,4 +11,6 @@ package giorgoskozindividualv2.operations.interfaces;
  */
 public interface RestrictedUserOperationsInterface {
     
+    public void readOwnMessages();
+    
 }

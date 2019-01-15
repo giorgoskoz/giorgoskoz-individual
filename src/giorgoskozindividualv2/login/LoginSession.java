@@ -7,7 +7,7 @@ package giorgoskozindividualv2.login;
 
 import giorgoskozindividualv2.dao.Dao;
 import giorgoskozindividualv2.utils.Utils;
-import giorgoskozindividualv2.view.UI;
+import giorgoskozindividualv2.view.EngUI;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,12 +23,12 @@ public class LoginSession {
     
     public LoginSession() {
         Dao udao = new Dao();
-        UI.welcome1();
+        EngUI.welcome1();
         int dailypassInput = Utils.readInputInt();
         if (dailypassInput != udao.fetchDailypass()) {
             System.exit(0);
         }
-        UI.welcome2();
+        EngUI.welcome2();
         String existingUsername = usernameInputAndCheck(getUsersMap());
         loggedUser = passwordInputAndCheck(existingUsername, getUsersMap());
         
@@ -36,13 +36,13 @@ public class LoginSession {
     
     public User passwordInputAndCheck(String username, Map<String, String> usersMap){
         Dao udao = new Dao();
-        UI.promptPassword();
+        EngUI.promptPassword();
         String passwordInput = Utils.readPassword();
         for (String value : usersMap.values()) {
             if (passwordInput.equals(value)) {
                 return udao.fetchUserByUsername(username);
             }else{
-                UI.promptWrongPassword();
+                EngUI.promptWrongPassword();
                 passwordInputAndCheck(username, usersMap);
             }
         }
@@ -50,13 +50,13 @@ public class LoginSession {
     }
     
     public String usernameInputAndCheck(Map<String, String> usersMap){
-        UI.promptUsername();
+        EngUI.promptUsername();
         String usernameInput = Utils.readInputString();
         for (String key : usersMap.keySet()) {
             if (usernameInput.equals(key)) {
                 return usernameInput;
             }else{
-                UI.promptWrongUsername();
+                EngUI.promptWrongUsername();
                 usernameInputAndCheck(usersMap);
             }
         }

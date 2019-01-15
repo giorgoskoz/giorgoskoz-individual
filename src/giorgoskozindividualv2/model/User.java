@@ -11,7 +11,7 @@ package giorgoskozindividualv2.model;
  */
 public class User {
     
-    private int id;
+    private int userId;
     private String username;
     private String password;
     private RoleEnum role;
@@ -21,7 +21,7 @@ public class User {
     }
 
     public User(int id, String username, String password, int roleId, int banStatusId) {
-        this.id = id;
+        this.userId = id;
         this.username = username;
         this.password = password;
         setRole(roleId);
@@ -30,15 +30,15 @@ public class User {
     
     @Override
     public String toString() {
-        return "id: " + id + "  |  username: " + username + "  |  password: " + password + "  | role: " + role + "  | banned: " + banStatus + "\n";
+        return "id: " + userId + "  |  username: " + username + "  |  password: " + password + "  | role: " + role + "  | banned: " + banStatus + "\n";
     }
 
     public int getId() {
-        return id;
+        return userId;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.userId = id;
     }
 
     public String getUsername() {

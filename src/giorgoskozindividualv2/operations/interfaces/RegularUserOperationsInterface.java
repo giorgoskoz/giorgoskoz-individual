@@ -5,10 +5,19 @@
  */
 package giorgoskozindividualv2.operations.interfaces;
 
+import giorgoskozindividualv2.model.Message;
+import giorgoskozindividualv2.model.User;
+import java.util.ArrayList;
+
 /**
  *
  * @author giorgoskoz
  */
 public interface RegularUserOperationsInterface {
+    
+    public Message sendMessage(int receiverUserId, String content);
+    public int deleteOwnMessage(int messageId);
+    public ArrayList<User> getAllUsers();
+    public int deleteOwnProfile();
     
 }
