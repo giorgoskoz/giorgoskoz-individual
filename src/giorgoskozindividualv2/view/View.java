@@ -26,15 +26,15 @@ public class View {
     }
     
     public void displayGoodbye(){
-        System.out.println(ui.getGoodbye() + "\n");
+        System.out.println("\n" + ui.getGoodbye() + "\n");
     }
     
     public void displayRestrictedUserMenu(){
-        System.out.println(ui.getRestrictedUserMainMenu() + "\n");
+        System.out.println("\n" + ui.getRestrictedUserMainMenu() + "\n");
     }
     
     public void displayMessages(List<Message> messages){
-        System.out.println(ui.getOwnMessagesIntro() + "\n");
+        System.out.println("\n" + ui.getOwnMessagesIntro() + "\n");
         for (Message message : messages) {
             displayMessage(message);
         }

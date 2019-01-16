@@ -86,7 +86,7 @@ public class EngUI implements UI {
 
     @Override
     public String getOwnMessagesIntro() {
-        return "\n" + ownMessagesIntro;
+        return ownMessagesIntro;
     }
 
     @Override
@@ -96,12 +96,12 @@ public class EngUI implements UI {
 
     @Override
     public String getRestrictedUserMainMenu() {
-        return "\n" + restrictedUserMainMenu;
+        return restrictedUserMainMenu;
     }
 
     @Override
     public String getGoodbye() {
-        return "\n" + goodbye;
+        return goodbye;
     }
     
 }

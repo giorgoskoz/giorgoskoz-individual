@@ -37,7 +37,7 @@ public class Message {
     
     @Override
     public String toString() {
-        return "Message id: " + messageId + "  |  Date Sent: " + dateSent + "  |  Sender:" + sender.getUsername() + "  |  Receiver: " + receiver.getUsername() + "\n" + content + "\n";
+        return "Message id: " + messageId + "  |  Date Sent: " + dateSent + "  |  Sender: " + sender.getUsername() + "  |  Receiver: " + receiver.getUsername() + "\n" + content + "\n";
     }
 
     public int getMessageId() {
