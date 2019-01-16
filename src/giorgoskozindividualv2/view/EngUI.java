@@ -21,6 +21,7 @@ public class EngUI implements UI {
     private String promptDate = "Date: ";
     private String promptSender = "Sender: ";
     private String promptReceiver = "Receiver: ";
+    private String separator = "  |  ";
 
     public String getPromptSender() {
         return promptSender;
@@ -61,8 +62,10 @@ public class EngUI implements UI {
     public String getPromptId() {
         return promptId;
     }
-    
-    
+
+    public String getSeparator() {
+        return separator;
+    }
     
 }
     

@@ -6,7 +6,9 @@
 package giorgoskozindividualv2.view;
 
 import giorgoskozindividualv2.model.Message;
+import giorgoskozindividualv2.model.User;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -23,12 +25,17 @@ public class View {
         this.ui = ui;
     }
     
-    public void displayMessages(ArrayList<Message> messages){
+    public void displayMessages(List<Message> messages){
         for (Message message : messages) {
-            System.out.println(ui.getPromptId() + message.getMessageId() + 
-            ui.getPromptDate() + message.getDate() + ui.getPromptSender() +
-            dao.fetchUsernameByUserId(message.getSenderId()) + ui.getPromptReceiver() + 
-            dao.fetchUsernameByUserId(message.getReceiverId()) + "\n" + message.getContent());
+            System.out.println(message);
+        }
+    }
+    
+    public void displayUsers(List<User> users){
+        for (User user : users) {
+            System.out.println("id: " + user.getId() + ui.getSeparator() 
+                    + "username: " + user.getUsername() + ui.getSeparator() 
+                    + "banned: " + user.getBanStatus() + "\n");
         }
     }
     

@@ -18,6 +18,7 @@ import giorgoskozindividualv2.operations.RegularUserOperations;
 import giorgoskozindividualv2.operations.RestrictedUserOperations;
 import giorgoskozindividualv2.view.EngUI;
 import giorgoskozindividualv2.view.UI;
+import giorgoskozindividualv2.view.View;
 import java.util.List;
 
 /**
@@ -37,6 +38,9 @@ public class Main {
         for (User user : allUsers) {
             System.out.println(user);
         }
+        UI ui = new EngUI();
+        View view = new View(ui);
+        view.displayUsers(allUsers);
         
         MessageDaoImpl mdao = new MessageDaoImpl();
         List<Message> allMessages = mdao.getAllMessages();
@@ -47,9 +51,7 @@ public class Main {
         User user = new User(16, "q", "q", 5, 0);
         System.out.println(user);
         List<Message> qsMessages = mdao.getMessagesOfUser(user);
-        for (Message qsMessage : qsMessages) {
-            System.out.println(qsMessage);
-        }
+        view.displayMessages(qsMessages);
         
         
 //        Dao dao = new Dao();
