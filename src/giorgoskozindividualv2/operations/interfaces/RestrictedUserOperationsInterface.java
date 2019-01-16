@@ -5,6 +5,7 @@
  */
 package giorgoskozindividualv2.operations.interfaces;
 
+import giorgoskozindividualv2.MessengerException;
 import giorgoskozindividualv2.model.User;
 
 /**
@@ -13,8 +14,8 @@ import giorgoskozindividualv2.model.User;
  */
 public interface RestrictedUserOperationsInterface {
     
-    public void banCheck(User user);
-    public void mainMenu();
-    public void readOwnMessages();
+    public void banCheck(User user)  throws MessengerException;
+    public void mainMenu()  throws MessengerException;
+    public void readOwnMessages() throws MessengerException;
     
 }

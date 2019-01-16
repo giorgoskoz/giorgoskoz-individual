@@ -26,17 +26,26 @@ public class View {
     }
     
     public void displayMessages(List<Message> messages){
+        System.out.println(ui.getOwnMessagesIntro() + "\n");
         for (Message message : messages) {
-            System.out.println(message);
+            displayMessage(message);
         }
     }
     
     public void displayUsers(List<User> users){
         for (User user : users) {
-            System.out.println("id: " + user.getId() + ui.getSeparator() 
+            displayUser(user);
+        }
+    }
+    
+    public void displayMessage(Message message){
+        System.out.println(message);
+    }
+    
+    public void displayUser(User user){
+        System.out.println("id: " + user.getId() + ui.getSeparator() 
                     + "username: " + user.getUsername() + ui.getSeparator() 
                     + "banned: " + user.getBanStatus() + "\n");
-        }
     }
     
     

@@ -53,6 +53,8 @@ public class Main {
         List<Message> qsMessages = mdao.getMessagesOfUser(user);
         view.displayMessages(qsMessages);
         
+        RestrictedUserOperations ruo = new RestrictedUserOperations(user, udao, mdao, view);
+        ruo.readOwnMessages();
         
 //        Dao dao = new Dao();
 //        EngUI ui = new EngUI();

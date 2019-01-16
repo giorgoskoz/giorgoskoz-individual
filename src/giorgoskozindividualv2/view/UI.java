@@ -31,6 +31,8 @@ public interface UI {
     
     String getPromptSender();
     
-    public String getSeparator();
+    String getSeparator();
+    
+    String getOwnMessagesIntro();
     
 }

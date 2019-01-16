@@ -22,6 +22,7 @@ public class EngUI implements UI {
     private String promptSender = "Sender: ";
     private String promptReceiver = "Receiver: ";
     private String separator = "  |  ";
+    private String ownMessagesIntro = "Your messages: (Newest at the bottom)";
 
     public String getPromptSender() {
         return promptSender;
@@ -65,6 +66,10 @@ public class EngUI implements UI {
 
     public String getSeparator() {
         return separator;
+    }
+
+    public String getOwnMessagesIntro() {
+        return ownMessagesIntro;
     }
     
 }
