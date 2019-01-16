@@ -57,7 +57,11 @@ public class View {
     }
     
     public void displayYouAreBanned(){
-        System.out.println(ui.getYouAreBanned() + "\n");
+        System.out.println("\n" + ui.getYouAreBanned() + "\n");
+    }
+    
+    public void displayInvalidOption(){
+        System.out.println("\n" + ui.getInvalidOption() + "\n");
     }
     
     

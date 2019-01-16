@@ -65,6 +65,10 @@ public class RestrictedUserOperations implements RestrictedUserOperationsInterfa
                 readOwnMessages();
                 mainMenu();
                 break;
+            default:
+                view.displayInvalidOption();
+                mainMenu();
+                break;
         }
         
     }

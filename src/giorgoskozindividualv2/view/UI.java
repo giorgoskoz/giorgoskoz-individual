@@ -41,4 +41,6 @@ public interface UI {
     
     String getGoodbye();
     
+    String getInvalidOption();
+    
 }

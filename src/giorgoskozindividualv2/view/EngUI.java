@@ -28,6 +28,7 @@ public class EngUI implements UI {
                                           + "1" + separator + "Quit\n" 
                                           + "2" + separator + "Show messages";
     private String goodbye = "See you in the shadows, sibling";
+    private String invalidOption = "Invalid option, try again";
 
     @Override
     public String getPromptSender() {
@@ -102,6 +103,11 @@ public class EngUI implements UI {
     @Override
     public String getGoodbye() {
         return goodbye;
+    }
+
+    @Override
+    public String getInvalidOption() {
+        return invalidOption;
     }
     
 }
