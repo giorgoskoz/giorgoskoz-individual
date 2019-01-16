@@ -36,11 +36,11 @@ CREATE TABLE `giorgoskozindividualv2`.`dailypass` (
   `dailypass_value` INT NOT NULL,
   PRIMARY KEY (`dailypass_id`));
 
-INSERT INTO `users` VALUES(default, 'admin', 'admin', 7, 0);
-INSERT INTO `users` VALUES(default, 'asset1', 'asset1', 1, 0);
+INSERT INTO `users` VALUES(default, 'admin', 'admin', 6, 0);
+INSERT INTO `users` VALUES(default, 'agent47', 'agent47', 1, 0);
 INSERT INTO `users` VALUES(default, 'jbond', '007', 2, 0);
-INSERT INTO `users` VALUES(default, 'q', 'q', 6, 0);
-INSERT INTO `users` VALUES(default, 'deleter1', 'deleter1', 5, 0);
+INSERT INTO `users` VALUES(default, 'q', 'q', 5, 0);
+INSERT INTO `users` VALUES(default, 'editor1', 'editor1', 4, 0);
 INSERT INTO `users` VALUES(default, 'alect', 'alect', 2, 0);
 
 SELECT * FROM `users`;

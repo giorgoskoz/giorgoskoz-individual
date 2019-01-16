@@ -22,7 +22,7 @@ public interface MessageDAO {
     
     void delete(Message msg) throws MessengerException;
     
-    Message getMessageById(long id) throws MessengerException;
+    Message getMessageById(int id) throws MessengerException;
     
     List<Message> getAllMessages() throws MessengerException;
     

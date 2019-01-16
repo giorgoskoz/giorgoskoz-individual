@@ -38,6 +38,12 @@ public class Main {
             System.out.println(user);
         }
         
+        MessageDaoImpl mdao = new MessageDaoImpl();
+        List<Message> allMessages = mdao.getAllMessages();
+        for (Message message : allMessages) {
+            System.out.println(message);
+        }
+        
         
 //        Dao dao = new Dao();
 //        EngUI ui = new EngUI();
