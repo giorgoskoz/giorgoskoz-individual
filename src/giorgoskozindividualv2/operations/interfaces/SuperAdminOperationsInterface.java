@@ -11,4 +11,7 @@ package giorgoskozindividualv2.operations.interfaces;
  */
 public interface SuperAdminOperationsInterface {
     
+    public void banUser();
+    public void unBanUser();
+    
 }

@@ -61,7 +61,7 @@ public class User {
         return role;
     }
 
-    public void setRole(int roleId) {
+    public void setRoleById(int roleId) {
         switch(roleId){
             case 1:
                 role = RoleEnum.RESTRICTED_USER;
@@ -79,10 +79,7 @@ public class User {
                 role = RoleEnum.DELETER;
                 break;
             case 6:
-                role = RoleEnum.ADMIN;
-                break;
-            case 7:
-                role = RoleEnum.EDITOR;
+                role = RoleEnum.SUPER_ADMIN;
                 break;
         }
     }

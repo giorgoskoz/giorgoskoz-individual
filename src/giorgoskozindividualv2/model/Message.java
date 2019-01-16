@@ -15,9 +15,9 @@ import java.sql.Timestamp;
 public class Message {
     
     private int messageId;
-    private Timestamp date;
-    private int senderId;
-    private int receiverId;
+    private Timestamp dateSent;
+    private User sender;
+    private User receiver;
     private String content;
     private int deletedBySender;
     private int deletedByReceiver;
@@ -25,11 +25,11 @@ public class Message {
     public Message() {
     }
 
-    public Message(int messageId, Timestamp date, int senderId, int receiverId, String content, int deletedBySender, int deletedByReceiver) {
+    public Message(int messageId, Timestamp dateSent, User sender, User receiver, String content, int deletedBySender, int deletedByReceiver) {
         this.messageId = messageId;
-        this.date = date;
-        this.senderId = senderId;
-        this.receiverId = receiverId;
+        this.dateSent = dateSent;
+        this.sender = sender;
+        this.receiver = receiver;
         this.content = content;
         this.deletedBySender = deletedBySender;
         this.deletedByReceiver = deletedByReceiver;
@@ -37,7 +37,7 @@ public class Message {
     
     @Override
     public String toString() {
-        return "Message id: " + messageId + "  |  Date Sent: " + date + "  |  Sender:" + senderId + "  |  Receiver: " + receiverId + "\n" + content + "\n";
+        return "Message id: " + messageId + "  |  Date Sent: " + dateSent + "  |  Sender:" + sender.getUsername() + "  |  Receiver: " + receiver.getUsername() + "\n" + content + "\n";
     }
 
     public int getMessageId() {
@@ -48,28 +48,28 @@ public class Message {
         this.messageId = messageId;
     }
 
-    public Timestamp getDate() {
-        return date;
+    public Timestamp getDateSent() {
+        return dateSent;
     }
 
-    public void setDate(Timestamp date) {
-        this.date = date;
+    public void setDateSent(Timestamp dateSent) {
+        this.dateSent = dateSent;
     }
 
-    public int getSenderId() {
-        return senderId;
+    public User getSender() {
+        return sender;
     }
 
-    public void setSenderId(int senderId) {
-        this.senderId = senderId;
+    public void setSender(User sender) {
+        this.sender = sender;
     }
 
-    public int getReceiverId() {
-        return receiverId;
+    public User getReceiver() {
+        return receiver;
     }
 
-    public void setReceiverId(int receiverId) {
-        this.receiverId = receiverId;
+    public void setReceiver(User receiver) {
+        this.receiver = receiver;
     }
 
     public String getContent() {

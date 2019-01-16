@@ -10,5 +10,6 @@ package giorgoskozindividualv2.operations.interfaces;
  * @author giorgoskoz
  */
 public interface AdminOperationsInterface {
-    
+    //mipws na parei poulo kai na yparxei mono superadmin gia na glitwsoume olo
+    //to rdelo me ta admin pou den mporoun na peiraksoun allous admin kai supadm?
 }

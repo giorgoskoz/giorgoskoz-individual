@@ -11,6 +11,6 @@ import giorgoskozindividualv2.operations.interfaces.SuperAdminOperationsInterfac
  *
  * @author giorgoskoz
  */
-public class SuperAdminOperations extends AdminOperations implements SuperAdminOperationsInterface {
+public class SuperAdminOperations extends DeleterOperations implements SuperAdminOperationsInterface {
     
 }

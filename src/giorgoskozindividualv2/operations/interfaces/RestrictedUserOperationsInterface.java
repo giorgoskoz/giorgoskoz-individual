@@ -5,12 +5,16 @@
  */
 package giorgoskozindividualv2.operations.interfaces;
 
+import giorgoskozindividualv2.model.User;
+
 /**
  *
  * @author giorgoskoz
  */
 public interface RestrictedUserOperationsInterface {
     
+    public void banCheck(User user);
+    public void mainMenu();
     public void readOwnMessages();
     
 }

@@ -11,24 +11,24 @@ package giorgoskozindividualv2.view;
  */
 public interface UI {
     
-    public String getSplashScreen();
+    String getSplashScreen();
 
-    public String getWelcome();
+    String getWelcome();
 
-    public String getPromptUsername();
+    String getPromptUsername();
 
-    public String getPromptPassword();
+    String getPromptPassword();
 
-    public String getPromptWrongUsername();
+    String getPromptWrongUsername();
 
-    public String getPromptWrongPassword();
+    String getPromptWrongPassword();
 
-    public String getPromptId();
+    String getPromptId();
     
-    public String getPromptDate();
+    String getPromptDate();
     
-    public String getPromptReceiver();
+    String getPromptReceiver();
     
-    public String getPromptSender();
+    String getPromptSender();
     
 }

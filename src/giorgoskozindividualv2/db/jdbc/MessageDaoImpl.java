@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package giorgoskozindividualv2.operations;
-
-import giorgoskozindividualv2.operations.interfaces.AdminOperationsInterface;
+package giorgoskozindividualv2.db.jdbc;
 
 /**
  *
  * @author giorgoskoz
  */
-public class AdminOperations extends DeleterOperations implements AdminOperationsInterface {
+public class MessageDaoImpl {
     
 }
