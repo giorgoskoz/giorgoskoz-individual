@@ -18,6 +18,7 @@ import giorgoskozindividualv2.view.EngUI;
 import giorgoskozindividualv2.view.UI;
 import giorgoskozindividualv2.view.View;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -76,6 +77,7 @@ public class RestrictedUserOperations implements RestrictedUserOperationsInterfa
     @Override
     public void readOwnMessages() throws MessengerException {
             List<Message> messages = mdao.getMessagesOfUser(user);
+            messages = filterOutDeletedMessages(user, messages);
             view.displayMessages(messages);
     }
 
@@ -93,6 +95,18 @@ public class RestrictedUserOperations implements RestrictedUserOperationsInterfa
 
     public View getView() {
         return view;
+    }
+    
+    public List<Message> filterOutDeletedMessages(User user, List<Message> messages) {
+        List<Message> nonDeletedMessages = new ArrayList<Message>();
+        for (Message message : messages) {
+            if ((user.getId() == message.getSender().getId()) && (message.getDeletedBySender() == 0)) {
+                nonDeletedMessages.add(message);
+            } else if ((user.getId() == message.getReceiver().getId()) && (message.getDeletedBySender() == 0)) {
+                nonDeletedMessages.add(message);
+            }
+        }
+        return nonDeletedMessages;
     }
     
     

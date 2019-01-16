@@ -62,4 +62,10 @@ public class MessageDaoImpl implements MessageDAO {
         return DatabaseHelper.fetchMessages("select * from messages where sender_id = ? or receiver_id = ? ORDER BY date_sent ASC", id, id);
     }
     
+    @Override
+    public List<Message> getMessagesOfUserExceptDeleted(User senderOrReceiver) throws MessengerException {
+        int id = senderOrReceiver.getId();
+        return DatabaseHelper.fetchMessages("select * from messages where (sender_id = ? or receiver_id = ?) AND deleted_by_sender = 0 ORDER BY date_sent ASC", id, id);
+    }
+    
 }

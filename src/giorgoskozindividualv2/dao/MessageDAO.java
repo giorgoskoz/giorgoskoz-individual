@@ -32,4 +32,6 @@ public interface MessageDAO {
     
     List<Message> getMessagesOfUser(User senderOrReceiver) throws MessengerException;
     
+    List<Message> getMessagesOfUserExceptDeleted(User senderOrReceiver) throws MessengerException;
+    
 }

@@ -42,6 +42,7 @@ INSERT INTO `users` VALUES(default, 'jbond', '007', 2, 0);
 INSERT INTO `users` VALUES(default, 'q', 'q', 5, 0);
 INSERT INTO `users` VALUES(default, 'editor1', 'editor1', 4, 0);
 INSERT INTO `users` VALUES(default, 'alect', 'alect', 2, 0);
+INSERT INTO `users` VALUES(default, 'kwlopaidaras', '123', 2, 1);
 
 SELECT * FROM `users`;
 
@@ -49,6 +50,9 @@ INSERT INTO `messages` VALUES(default, NOW(), 15, 16, 'which button on the key u
 INSERT INTO `messages` VALUES(default, NOW(), 18, 16, 'oh so I get the lada again?', 0, 0);
 INSERT INTO `messages` VALUES(default, NOW(), 16, 18, 'even IT is too good for you', 0, 0);
 INSERT INTO `messages` VALUES(default, NOW(), 16, 15, 'I\'m coming to pick it up, it\'s the bus for you', 0, 0);
+INSERT INTO `messages` VALUES(default, NOW(), 16, 15, 'actually i\'m drunk and wanna come and see your piercing eyes...', 1, 0);
+INSERT INTO `messages` VALUES(default, NOW(), 18, 16, 'oh so I get the lada again?', 0, 0);
+INSERT INTO `messages` VALUES(1, NOW(), 13, 16, 'this is gonna get messy', 0, 0);
 
 SELECT * FROM `messages` ORDER BY date_sent ASC;
 
@@ -59,3 +63,5 @@ DELETE FROM `messages` WHERE `message_id` = 13;
 SELECT * FROM `messages` WHERE `sender_id` = 16 || `receiver_id` = 16 ORDER BY `date` ASC;
 
 INSERT INTO `dailypass` VALUES(default, 'makeleio', 1111);
+
+select * from messages where (sender_id = 16 or receiver_id = 16) AND deleted_by_sender = 0 ORDER BY date_sent ASC;
