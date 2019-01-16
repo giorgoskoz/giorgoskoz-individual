@@ -146,7 +146,7 @@ public class DatabaseHelper {
         user.setUsername(rs.getString("username"));
         user.setPassword(rs.getString("password"));
         user.setRoleById(rs.getInt("role_id"));
-        user.setBanStatus(rs.getInt("banned"));
+        user.setBanStatusByBanStatusId(rs.getInt("banned"));
         return user;
     }
     

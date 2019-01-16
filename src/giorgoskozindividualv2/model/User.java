@@ -5,6 +5,8 @@
  */
 package giorgoskozindividualv2.model;
 
+import giorgoskozindividualv2.MessengerException;
+
 /**
  *
  * @author giorgoskoz
@@ -20,12 +22,20 @@ public class User {
     public User() {
     }
 
-    public User(int id, String username, String password, int roleId, int banStatusId) {
+    public User(int userId, String username, String password, RoleEnum role, BannedEnum banStatus) {
+        this.userId = userId;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.banStatus = banStatus;
+    }
+
+    public User(int id, String username, String password, int roleId, int banStatusId) throws MessengerException {
         this.userId = id;
         this.username = username;
         this.password = password;
-        setRole(roleId);
-        setBanStatus(banStatusId);
+        setRoleById(roleId);
+        setBanStatusByBanStatusId(banStatusId);
     }
     
     @Override
@@ -61,44 +71,46 @@ public class User {
         return role;
     }
 
-    public void setRoleById(int roleId) {
-        switch(roleId){
-            case 1:
-                role = RoleEnum.RESTRICTED_USER;
-                break;
-            case 2:
-                role = RoleEnum.REGULAR_USER;
-                break;
-            case 3:
-                role = RoleEnum.VIEWER;
-                break;
-            case 4:
-                role = RoleEnum.EDITOR;
-                break;
-            case 5:
-                role = RoleEnum.DELETER;
-                break;
-            case 6:
-                role = RoleEnum.SUPER_ADMIN;
-                break;
-        }
+    public void setRoleById(int roleId) throws MessengerException {
+        this.role = getRoleEnumByRoleEnumId(roleId);
     }
 
     public BannedEnum getBanStatus() {
         return banStatus;
     }
 
-    public void setBanStatus(int banStatusId) {
-        switch(banStatusId){
-            case 0:
-                banStatus = BannedEnum.NOT_BANNED;
-                break;
-            case 1:
-                banStatus = BannedEnum.NOT_BANNED;
-                break;
-        }
+    public void setBanStatusByBanStatusId(int banStatusId) throws MessengerException {
+            this.banStatus = getBannedEnumByBannedEnumId(banStatusId);
     }
     
-    
-    
+    public BannedEnum getBannedEnumByBannedEnumId(int banStatusId) throws MessengerException {
+        switch(banStatusId){
+            case 0:
+                return BannedEnum.NOT_BANNED;
+            case 1:
+                return BannedEnum.BANNED;
+            default:
+                throw new MessengerException("No such ban status id");
+        }
+    }
+        
+    public RoleEnum getRoleEnumByRoleEnumId(int roleId) throws MessengerException {
+        switch(roleId){
+            case 1:
+                return RoleEnum.RESTRICTED_USER;
+            case 2:
+                return RoleEnum.REGULAR_USER;
+            case 3:
+                return RoleEnum.VIEWER;
+            case 4:
+                return RoleEnum.EDITOR;
+            case 5:
+                return RoleEnum.DELETER;
+            case 6:
+                return RoleEnum.SUPER_ADMIN;
+            default:
+                throw new MessengerException("No such role id");
+        }    
+    }
+        
 }

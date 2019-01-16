@@ -50,7 +50,7 @@ INSERT INTO `messages` VALUES(default, NOW(), 18, 16, 'oh so I get the lada agai
 INSERT INTO `messages` VALUES(default, NOW(), 16, 18, 'even IT is too good for you', 0, 0);
 INSERT INTO `messages` VALUES(default, NOW(), 16, 15, 'I\'m coming to pick it up, it\'s the bus for you', 0, 0);
 
-SELECT * FROM `messages` ORDER BY date ASC;
+SELECT * FROM `messages` ORDER BY date_sent ASC;
 
 UPDATE MESSAGES SET `deleted_by_sender` = 0 WHERE `message_id` = 15; 
 

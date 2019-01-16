@@ -43,23 +43,23 @@ public class MessageDaoImpl implements MessageDAO {
 
     @Override
     public List<Message> getAllMessages() throws MessengerException {
-        return DatabaseHelper.fetchMessages("select * from messages");
+        return DatabaseHelper.fetchMessages("select * from messages ORDER BY date_sent ASC");
     }
 
     @Override
     public List<Message> getMessagesSentBy(User sender) throws MessengerException {
-        return DatabaseHelper.fetchMessages("select * from messages where sender_id = ?", sender.getId());
+        return DatabaseHelper.fetchMessages("select * from messages where sender_id = ? ORDER BY date_sent ASC", sender.getId());
     }
 
     @Override
     public List<Message> getMessagesSentTo(User receiver) throws MessengerException {
-        return DatabaseHelper.fetchMessages("select * from messages where receiver_id = ?", receiver.getId());
+        return DatabaseHelper.fetchMessages("select * from messages where receiver_id = ? ORDER BY date_sent ASC", receiver.getId());
     }
 
     @Override
     public List<Message> getMessagesOfUser(User senderOrReceiver) throws MessengerException {
         int id = senderOrReceiver.getId();
-        return DatabaseHelper.fetchMessages("select * from messages where sender_id = ? or receiver_id = ?", id, id);
+        return DatabaseHelper.fetchMessages("select * from messages where sender_id = ? or receiver_id = ? ORDER BY date_sent ASC", id, id);
     }
     
 }

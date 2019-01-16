@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author giorgoskoz
  */
-public interface RegularUserOperationsInterface {
+public interface RegularUserOperationsInterface extends RestrictedUserOperationsInterface {
     
     public Message sendMessage(int receiverUserId, String content);
     public int deleteOwnMessage(int messageId);

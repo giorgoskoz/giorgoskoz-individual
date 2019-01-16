@@ -44,6 +44,13 @@ public class Main {
             System.out.println(message);
         }
         
+        User user = new User(16, "q", "q", 5, 0);
+        System.out.println(user);
+        List<Message> qsMessages = mdao.getMessagesOfUser(user);
+        for (Message qsMessage : qsMessages) {
+            System.out.println(qsMessage);
+        }
+        
         
 //        Dao dao = new Dao();
 //        EngUI ui = new EngUI();
