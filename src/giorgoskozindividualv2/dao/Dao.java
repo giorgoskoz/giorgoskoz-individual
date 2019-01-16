@@ -78,8 +78,8 @@ public class Dao {
                 user.setId(rs.getInt(1));
                 user.setUsername(rs.getString(2));
                 user.setPassword(rs.getString(3));
-                user.setRole(rs.getInt(4));
-                user.setBanStatus(rs.getInt(5));
+                user.setRoleById(rs.getInt(4));
+                user.setBanStatusByBanStatusId(rs.getInt(5));
             }
             con.close();
             return user;

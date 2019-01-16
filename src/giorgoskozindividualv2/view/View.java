@@ -25,6 +25,14 @@ public class View {
         this.ui = ui;
     }
     
+    public void displayGoodbye(){
+        System.out.println(ui.getGoodbye() + "\n");
+    }
+    
+    public void displayRestrictedUserMenu(){
+        System.out.println(ui.getRestrictedUserMainMenu() + "\n");
+    }
+    
     public void displayMessages(List<Message> messages){
         System.out.println(ui.getOwnMessagesIntro() + "\n");
         for (Message message : messages) {
@@ -46,6 +54,10 @@ public class View {
         System.out.println("id: " + user.getId() + ui.getSeparator() 
                     + "username: " + user.getUsername() + ui.getSeparator() 
                     + "banned: " + user.getBanStatus() + "\n");
+    }
+    
+    public void displayYouAreBanned(){
+        System.out.println(ui.getYouAreBanned() + "\n");
     }
     
     

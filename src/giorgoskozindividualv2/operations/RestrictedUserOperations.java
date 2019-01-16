@@ -9,9 +9,11 @@ import giorgoskozindividualv2.MessengerException;
 import giorgoskozindividualv2.dao.Dao;
 import giorgoskozindividualv2.dao.MessageDAO;
 import giorgoskozindividualv2.dao.UserDAO;
+import giorgoskozindividualv2.model.BannedEnum;
 import giorgoskozindividualv2.model.Message;
 import giorgoskozindividualv2.model.User;
 import giorgoskozindividualv2.operations.interfaces.RestrictedUserOperationsInterface;
+import giorgoskozindividualv2.utils.Utils;
 import giorgoskozindividualv2.view.EngUI;
 import giorgoskozindividualv2.view.UI;
 import giorgoskozindividualv2.view.View;
@@ -39,6 +41,32 @@ public class RestrictedUserOperations implements RestrictedUserOperationsInterfa
         this.udao = udao;
         this.mdao = mdao;
         this.view = view;
+    }
+    
+    @Override
+    public void banCheck(){
+        if (user.getBanStatus() == BannedEnum.BANNED) {
+            view.displayYouAreBanned();
+            System.exit(0);
+        }
+    }
+    
+    @Override
+    public void mainMenu() throws MessengerException {
+        banCheck();
+        view.displayRestrictedUserMenu();
+        int userChoice = Utils.readInputInt();
+        //userChoice sanity check here
+        switch(userChoice){
+            case 1:
+                view.displayGoodbye();
+                System.exit(0);
+            case 2:
+                readOwnMessages();
+                mainMenu();
+                break;
+        }
+        
     }
     
     @Override

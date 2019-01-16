@@ -33,28 +33,32 @@ public class Main {
     public static void main(String[] args) throws MessengerException {
         // TODO code application logic here
         
+        Dao dao = new Dao();
         UserDAOImpl udao = new UserDAOImpl();
-        List<User> allUsers = udao.getAllUsers();
-        for (User user : allUsers) {
-            System.out.println(user);
-        }
         UI ui = new EngUI();
         View view = new View(ui);
-        view.displayUsers(allUsers);
-        
         MessageDaoImpl mdao = new MessageDaoImpl();
-        List<Message> allMessages = mdao.getAllMessages();
-        for (Message message : allMessages) {
-            System.out.println(message);
-        }
+        LoginSession login = new LoginSession(dao, ui);
+        RestrictedUserOperations ruo = new RestrictedUserOperations(login.getLoggedUser(), udao, mdao, view);
+        ruo.mainMenu();
+//        List<User> allUsers = udao.getAllUsers();
+//        for (User user : allUsers) {
+//            System.out.println(user);
+//        }
+//        
+//        view.displayUsers(allUsers);
+//        
+//        
+//        List<Message> allMessages = mdao.getAllMessages();
+//        for (Message message : allMessages) {
+//            System.out.println(message);
+//        }
+//        
+//        User user = new User(16, "q", "q", 5, 0);
+//        System.out.println(user);
+//        List<Message> qsMessages = mdao.getMessagesOfUser(user);
+//        view.displayMessages(qsMessages);
         
-        User user = new User(16, "q", "q", 5, 0);
-        System.out.println(user);
-        List<Message> qsMessages = mdao.getMessagesOfUser(user);
-        view.displayMessages(qsMessages);
-        
-        RestrictedUserOperations ruo = new RestrictedUserOperations(user, udao, mdao, view);
-        ruo.readOwnMessages();
         
 //        Dao dao = new Dao();
 //        EngUI ui = new EngUI();

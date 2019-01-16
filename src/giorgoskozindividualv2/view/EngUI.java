@@ -23,53 +23,85 @@ public class EngUI implements UI {
     private String promptReceiver = "Receiver: ";
     private String separator = "  |  ";
     private String ownMessagesIntro = "Your messages: (Newest at the bottom)";
+    private String youAreBanned = "**You are BANNED. Pray to the powers that be that this gets reverted**";
+    private String restrictedUserMainMenu = "Choose an option:\n"
+                                          + "1" + separator + "Quit\n" 
+                                          + "2" + separator + "Show messages";
+    private String goodbye = "See you in the shadows, sibling";
 
+    @Override
     public String getPromptSender() {
         return promptSender;
     }
 
+    @Override
     public String getPromptReceiver() {
         return promptReceiver;
     }
 
+    @Override
     public String getPromptDate() {
         return promptDate;
     }
 
+    @Override
     public String getSplashScreen() {
         return splashScreen;
     }
 
+    @Override
     public String getWelcome() {
         return welcome;
     }
 
+    @Override
     public String getPromptUsername() {
         return promptUsername;
     }
 
+    @Override
     public String getPromptPassword() {
         return promptPassword;
     }
 
+    @Override
     public String getPromptWrongUsername() {
         return promptWrongUsername;
     }
 
+    @Override
     public String getPromptWrongPassword() {
         return promptWrongPassword;
     }
 
+    @Override
     public String getPromptId() {
         return promptId;
     }
 
+    @Override
     public String getSeparator() {
         return separator;
     }
 
+    @Override
     public String getOwnMessagesIntro() {
-        return ownMessagesIntro;
+        return "\n" + ownMessagesIntro;
+    }
+
+    @Override
+    public String getYouAreBanned() {
+        return youAreBanned;
+    }
+
+    @Override
+    public String getRestrictedUserMainMenu() {
+        return "\n" + restrictedUserMainMenu;
+    }
+
+    @Override
+    public String getGoodbye() {
+        return "\n" + goodbye;
     }
     
 }

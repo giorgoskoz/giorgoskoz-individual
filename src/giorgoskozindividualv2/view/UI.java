@@ -35,4 +35,10 @@ public interface UI {
     
     String getOwnMessagesIntro();
     
+    String getYouAreBanned();
+    
+    String getRestrictedUserMainMenu();
+    
+    String getGoodbye();
+    
 }
