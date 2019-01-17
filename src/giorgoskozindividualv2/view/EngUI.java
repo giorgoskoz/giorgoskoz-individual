@@ -37,6 +37,24 @@ public class EngUI implements UI {
     private String allUsersIntro = "List of all the users: ";
     private String messageDeletionPromt = "Choose the id of the message to delete: ";
     private String messageDeletionConfirmation = "Message deleted successfully";
+    private String chooseUserToMessagePrompt = "Choose the id of the user to message: ";
+    private String inputMessagePrompt = "Type your message: ";
+    private String messageSentSuccess = "Message sent successfully";
+    
+    @Override
+    public String getMessageSentSuccess(){
+        return messageSentSuccess;
+    }
+    
+    @Override
+    public String getInputMessagePrompt(){
+        return inputMessagePrompt;
+    }
+    
+    @Override
+    public String getChooseUserToMessagePrompt(){
+        return chooseUserToMessagePrompt;
+    }
     
     public String getMessageDeletionConfirmation(){
         return messageDeletionConfirmation;

@@ -17,7 +17,7 @@ import java.util.List;
  */
 public interface RegularUserOperationsInterface extends RestrictedUserOperationsInterface {
     
-    public Message sendMessage();
+    public void sendMessage() throws MessengerException;
     
     public void deleteOwnMessage() throws MessengerException ;
     

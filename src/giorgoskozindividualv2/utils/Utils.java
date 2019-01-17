@@ -18,6 +18,13 @@ public class Utils {
     
     public static String readInputString(){
         Scanner sc = new Scanner(System.in);
+        String userInput = sc.next();
+        
+        return userInput;
+    }
+    
+    public static String readInputStringLine(){
+        Scanner sc = new Scanner(System.in);
         String userInput = sc.nextLine();
         
         return userInput;

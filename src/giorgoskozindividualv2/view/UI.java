@@ -39,6 +39,12 @@ public interface UI {
     
     String getMessageDeletionConfirmation();
     
+    String getChooseUserToMessagePrompt();
+    
+    String getInputMessagePrompt();
+    
+    String getMessageSentSuccess();
+    
     String getSeparator();
     
     String getOwnMessagesIntro();

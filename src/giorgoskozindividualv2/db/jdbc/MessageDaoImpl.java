@@ -9,6 +9,7 @@ import giorgoskozindividualv2.MessengerException;
 import giorgoskozindividualv2.dao.MessageDAO;
 import giorgoskozindividualv2.model.Message;
 import giorgoskozindividualv2.model.User;
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -18,8 +19,10 @@ import java.util.List;
 public class MessageDaoImpl implements MessageDAO {
     
     @Override
-    public Message create(User sender, User receiver, String text) throws MessengerException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Message create(Timestamp dateSent, User sender, User receiver, String content) throws MessengerException {
+        String query = "INSERT INTO `messages` VALUES(default, ?, ?, ?, ?, 0, 0)";
+        int messageId = DatabaseHelper.insertNewMessage(query, dateSent, sender.getId(), receiver.getId(), content);
+        return new Message(messageId, dateSent, sender, receiver, content, 0, 0);
     }
 
     @Override

@@ -35,7 +35,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public User getUserById(int id) throws MessengerException {
-        User user = DatabaseHelper.fetchUserOrNull("select * from users where id = ?", id);
+        User user = DatabaseHelper.fetchUserOrNull("select * from users where user_id = ?", id);
         if (user == null) {
             throw new MessengerException("Invalid user id: " + id);
         }

@@ -8,6 +8,7 @@ package giorgoskozindividualv2.dao;
 import giorgoskozindividualv2.MessengerException;
 import giorgoskozindividualv2.model.Message;
 import giorgoskozindividualv2.model.User;
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -16,7 +17,7 @@ import java.util.List;
  */
 public interface MessageDAO {
     
-    Message create(User sender, User receiver, String text) throws MessengerException;
+    Message create (Timestamp dateSent, User sender, User receiver, String content) throws MessengerException;
     
     void update(Message msg) throws MessengerException;
     

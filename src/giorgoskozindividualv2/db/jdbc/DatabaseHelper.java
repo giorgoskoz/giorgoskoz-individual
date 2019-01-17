@@ -16,6 +16,7 @@ import java.util.List;
 import giorgoskozindividualv2.MessengerException;
 import giorgoskozindividualv2.model.Message;
 import giorgoskozindividualv2.model.User;
+import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.Map;
 import java.util.TreeMap;
@@ -33,10 +34,37 @@ public class DatabaseHelper {
     private static final String USER = "giorgoskozindividualv2Admin";
     private static final String PASS = "giorgoskozindividualv2Admin";
     
+    static int insertNewMessage(String query, Timestamp dateSent, int senderId, int receiverId, String content) {
+        int createdMessageId = -1;
+        try(Connection con = openConnection();
+            PreparedStatement ps = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        ) {
+            ps.setTimestamp(1, dateSent);
+            ps.setInt(2, senderId);
+            ps.setInt(3, receiverId);
+            ps.setString(4, content);
+            int affectedRows = ps.executeUpdate();
+            if (affectedRows == 0) {
+                throw new SQLException("Creating user failed, no rows affected.");
+            }
+            try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    createdMessageId = generatedKeys.getInt("message_id");
+                } else {
+                    throw new SQLException("Creating user failed, no ID obtained.");
+                }
+            } catch (Exception e) {
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return createdMessageId;
+    }
+    
     static void softDeleteMessage(String query, int messageId){
-        try {
-            Connection con = openConnection();
+        try(Connection con = openConnection();
             PreparedStatement ps = con.prepareStatement(query);
+        ) {
             ps.setInt(1, messageId);
             ps.executeUpdate();
         } catch (Exception e) {
@@ -46,9 +74,9 @@ public class DatabaseHelper {
     
     static Map<Integer, String> fetchAllUserIdsUsernames() throws MessengerException {
         Map<Integer, String> usersMap = new TreeMap<>();
-        try {
-            Connection con = openConnection();
+        try(Connection con = openConnection();
             PreparedStatement ps = con.prepareStatement("SELECT `user_id`, `username` FROM `users` ORDER BY `username`");
+        ) { 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 usersMap.put(rs.getInt("user_id"), rs.getString("username"));

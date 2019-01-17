@@ -85,6 +85,18 @@ public class View {
     public void displayMessageDeletionConfirmation(){
         System.out.println("\n" + ui.getMessageDeletionConfirmation() + "\n");
     }
+    
+    public void displayInputMessagePrompt(){
+        System.out.println("\n" + ui.getInputMessagePrompt() + "\n");
+    }
+    
+    public void displayMessageSentSuccess(){
+        System.out.println("\n" + ui.getMessageSentSuccess() + "\n");
+    }
+    
+    public void displayChooseUserToMessagePrompt(){
+        System.out.println("\n" + ui.getChooseUserToMessagePrompt() + "\n");
+    }
 
     public UI getUi() {
         return ui;
