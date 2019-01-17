@@ -11,6 +11,6 @@ package giorgoskozindividualv2.model;
  */
 public enum RoleEnum {
     
-    RESTRICTED_USER, REGULAR_USER, VIEWER, EDITOR, DELETER, ADMIN, SUPER_ADMIN
+    RESTRICTED_USER, REGULAR_USER, VIEWER, EDITOR, DELETER, SUPER_ADMIN
     
 }

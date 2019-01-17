@@ -18,6 +18,7 @@ import java.util.TreeMap;
 import giorgoskozindividualv2.model.User;
 import giorgoskozindividualv2.operations.RegularUserOperations;
 import giorgoskozindividualv2.operations.RestrictedUserOperations;
+import giorgoskozindividualv2.operations.ViewerOperations;
 import giorgoskozindividualv2.view.UI;
 import giorgoskozindividualv2.view.View;
 
@@ -101,6 +102,10 @@ public class LoginSession {
             case REGULAR_USER:
                 RegularUserOperations regularUserOperations = new RegularUserOperations(user, udao, mdao, view);
                 regularUserOperations.mainMenu();
+                break;
+            case VIEWER:
+                ViewerOperations viewerOperations = new ViewerOperations(user, udao, mdao, view);
+                viewerOperations.mainMenu();
                 break;
         }
         return null;

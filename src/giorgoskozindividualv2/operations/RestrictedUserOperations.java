@@ -69,6 +69,7 @@ public class RestrictedUserOperations implements RestrictedUserOperationsInterfa
     public void readOwnMessages() throws MessengerException {
             List<Message> messages = mdao.getMessagesOfUser(user);
             messages = filterOutDeletedMessages(user, messages);
+            view.displayOwnMessagesIntro();
             view.displayMessages(messages);
     }
 
@@ -133,6 +134,10 @@ public class RestrictedUserOperations implements RestrictedUserOperationsInterfa
                 break;
             case REGULAR_USER:
                 view.displayRegularUserMenu();
+                break;
+            case VIEWER:
+                view.displayViewerMenu();
+                break;
         }
     }
     

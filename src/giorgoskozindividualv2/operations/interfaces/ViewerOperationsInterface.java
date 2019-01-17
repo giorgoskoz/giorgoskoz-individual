@@ -5,6 +5,7 @@
  */
 package giorgoskozindividualv2.operations.interfaces;
 
+import giorgoskozindividualv2.MessengerException;
 import giorgoskozindividualv2.model.User;
 
 /**
@@ -13,7 +14,7 @@ import giorgoskozindividualv2.model.User;
  */
 public interface ViewerOperationsInterface {
     
-    public void readOtherUserMessages(User user);
-    public void readAllMessages();
+    public void readOtherUserMessages() throws MessengerException;
+    public void readAllMessages()  throws MessengerException;
     
 }

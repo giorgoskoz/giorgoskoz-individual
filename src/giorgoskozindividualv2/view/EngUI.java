@@ -31,6 +31,9 @@ public class EngUI implements UI {
                                           + "3" + separator + "Send Message\n" 
                                           + "4" + separator + "Delete Message\n" 
                                           + "5" + separator + "Show All Users";
+    private String viewerMainMenu = regularUserMainMenu + "\n" 
+                                          + "6" + separator + "Read other user messages\n" 
+                                          + "7" + separator + "Read all messages";
     private String goodbye = "See you in the shadows, sibling";
     private String invalidOption = "Invalid option, try again";
     private String promptBanned = "Banned: ";
@@ -40,6 +43,16 @@ public class EngUI implements UI {
     private String chooseUserToMessagePrompt = "Choose the id of the user to message: ";
     private String inputMessagePrompt = "Type your message: ";
     private String messageSentSuccess = "Message sent successfully";
+    private String readOtherUserMessagesIntro = "Choose the id of the user to see messages: ";
+    private String readAllMessagesIntro = "List of all the Messages: ";
+    
+    public String getReadAllMessagesIntro(){
+        return readAllMessagesIntro;
+    }
+    
+    public String getReadOtherUserMessagesIntro(){
+        return readOtherUserMessagesIntro;
+    }
     
     @Override
     public String getMessageSentSuccess(){
@@ -148,6 +161,11 @@ public class EngUI implements UI {
     @Override
     public String getRegularUserMainMenu() {
         return regularUserMainMenu;
+    }
+    
+    @Override
+    public String getViewerMainMenu() {
+        return viewerMainMenu;
     }
     
     @Override

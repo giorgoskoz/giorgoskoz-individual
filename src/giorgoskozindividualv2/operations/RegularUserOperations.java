@@ -50,8 +50,8 @@ public class RegularUserOperations extends RestrictedUserOperations implements R
     
     @Override
     public void sendMessage() throws MessengerException {
-        this.getView().displayChooseUserToMessagePrompt();
         this.showAllUsers();
+        this.getView().displayChooseUserToMessagePrompt();
         int userChoice = 0;
         try {
             userChoice = Utils.readInputInt();
@@ -59,7 +59,14 @@ public class RegularUserOperations extends RestrictedUserOperations implements R
             this.getView().displayInvalidOption();
             mainMenu();
         }
-        User receiver = this.getUdao().getUserById(userChoice);
+        User receiver = new User();
+        try {
+            receiver = this.getUdao().getUserById(userChoice);
+        } catch (Exception e) {
+            this.getView().displayInvalidOption();
+            mainMenu();
+        }
+        
         this.getView().displayInputMessagePrompt();
         String content = Utils.readInputStringLine();
         Date date = new Date();

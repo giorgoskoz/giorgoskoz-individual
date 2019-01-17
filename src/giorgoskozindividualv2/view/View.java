@@ -39,8 +39,23 @@ public class View {
         System.out.println("\n" + ui.getRegularUserMainMenu() + "\n");
     }
     
-    public void displayMessages(List<Message> messages){
+    public void displayViewerMenu(){
+        System.out.println("\n" + ui.getViewerMainMenu() + "\n");
+    }
+    
+    public void displayReadOtherUserMessagesIntro(){
+        System.out.println("\n" + ui.getReadOtherUserMessagesIntro() + "\n");
+    }
+    
+    public void displayReadAllMessagesIntro(){
+        System.out.println("\n" + ui.getReadAllMessagesIntro() + "\n");
+    }
+    
+    public void displayOwnMessagesIntro(){
         System.out.println("\n" + ui.getOwnMessagesIntro() + "\n");
+    }
+    
+    public void displayMessages(List<Message> messages){
         for (Message message : messages) {
             displayMessage(message);
         }

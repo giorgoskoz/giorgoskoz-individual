@@ -55,8 +55,14 @@ public interface UI {
     
     String getRegularUserMainMenu();
     
+    String getViewerMainMenu();
+    
     String getGoodbye();
     
     String getInvalidOption();
+    
+    String getReadOtherUserMessagesIntro();
+    
+    String getReadAllMessagesIntro();
     
 }
