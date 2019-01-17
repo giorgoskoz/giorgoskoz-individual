@@ -31,6 +31,14 @@ public interface UI {
     
     String getPromptSender();
     
+    String getPromptBanned();
+    
+    String getAllUsersIntro();
+    
+    String getMessageDeletionPromt();
+    
+    String getMessageDeletionConfirmation();
+    
     String getSeparator();
     
     String getOwnMessagesIntro();

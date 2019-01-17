@@ -9,6 +9,8 @@ import giorgoskozindividualv2.model.Message;
 import giorgoskozindividualv2.model.User;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 /**
  *
@@ -50,14 +52,22 @@ public class View {
         }
     }
     
+    public void displayUsers(Map<Integer, String> usersMap){
+        System.out.println("\n" + ui.getAllUsersIntro() + "\n");
+        for (Map.Entry<Integer, String> entry : usersMap.entrySet()) {
+            System.out.println(ui.getPromptId() + entry.getKey() + ui.getSeparator()
+                    + ui.getPromptUsername() + entry.getValue() + "\n");
+        }
+    }
+    
     public void displayMessage(Message message){
         System.out.println(message);
     }
     
     public void displayUser(User user){
-        System.out.println("id: " + user.getId() + ui.getSeparator() 
-                    + "username: " + user.getUsername() + ui.getSeparator() 
-                    + "banned: " + user.getBanStatus() + "\n");
+        System.out.println(ui.getPromptId() + user.getId() + ui.getSeparator() 
+                    + ui.getPromptUsername() + user.getUsername() + ui.getSeparator() 
+                    + ui.getPromptBanned() + user.getBanStatus() + "\n");
     }
     
     public void displayYouAreBanned(){
@@ -67,6 +77,20 @@ public class View {
     public void displayInvalidOption(){
         System.out.println("\n" + ui.getInvalidOption() + "\n");
     }
+    
+    public void displayMessaDeletionPrompt(){
+        System.out.println("\n" + ui.getMessageDeletionPromt() + "\n");
+    }
+    
+    public void displayMessageDeletionConfirmation(){
+        System.out.println("\n" + ui.getMessageDeletionConfirmation() + "\n");
+    }
+
+    public UI getUi() {
+        return ui;
+    }
+    
+    
     
     
     

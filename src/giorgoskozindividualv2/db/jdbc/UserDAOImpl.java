@@ -7,6 +7,7 @@ package giorgoskozindividualv2.db.jdbc;
 
 import giorgoskozindividualv2.MessengerException;
 import giorgoskozindividualv2.dao.UserDAO;
+import static giorgoskozindividualv2.db.jdbc.DatabaseHelper.fetchAllUserIdsUsernames;
 import giorgoskozindividualv2.model.User;
 import java.util.List;
 import java.util.Map;
@@ -55,9 +56,9 @@ public class UserDAOImpl implements UserDAO {
         return DatabaseHelper.fetchUsers("select * from users");
     }
 
-//    @Override
-//    public Map<Integer, String> getAllUserIdsAndUsernames() throws MessengerException {
-//        
-//    }
+    @Override
+    public Map<Integer, String> getAllUserIdsAndUsernames() throws MessengerException {
+        return fetchAllUserIdsUsernames();
+    }
     
 }

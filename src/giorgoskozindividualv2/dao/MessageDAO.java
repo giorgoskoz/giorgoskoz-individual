@@ -34,4 +34,10 @@ public interface MessageDAO {
     
     List<Message> getMessagesOfUserExceptDeleted(User senderOrReceiver) throws MessengerException;
     
+    void softDeleteMessageBySender(Message msg);
+    
+    void softDeleteMessageByReceiver(Message msg);
+    
+    void softDeleteMessageByModerator(Message msg);
+    
 }

@@ -18,6 +18,7 @@ import giorgoskozindividualv2.model.Message;
 import giorgoskozindividualv2.model.User;
 import java.sql.Timestamp;
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  *
@@ -32,8 +33,30 @@ public class DatabaseHelper {
     private static final String USER = "giorgoskozindividualv2Admin";
     private static final String PASS = "giorgoskozindividualv2Admin";
     
-    static Map<Integer, String> fetchAllUserIdsAndUsernames() throws MessengerException {
-        
+    static void softDeleteMessage(String query, int messageId){
+        try {
+            Connection con = openConnection();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, messageId);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    static Map<Integer, String> fetchAllUserIdsUsernames() throws MessengerException {
+        Map<Integer, String> usersMap = new TreeMap<>();
+        try {
+            Connection con = openConnection();
+            PreparedStatement ps = con.prepareStatement("SELECT `user_id`, `username` FROM `users` ORDER BY `username`");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                usersMap.put(rs.getInt("user_id"), rs.getString("username"));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage(), e);
+        }
+        return usersMap;
     }
     
     static User fetchUserOrNull(String query, int id) throws MessengerException {
@@ -75,8 +98,10 @@ public class DatabaseHelper {
     
     static Message fetchMessageOrNull(String query, int id) throws MessengerException {
         try (Connection con = openConnection();
-             PreparedStatement ps = con.prepareStatement(query);    
+             PreparedStatement ps = con.prepareStatement(query); 
+             
         ){      
+            ps.setInt(1, id);
             return fetchMessageOrNull(ps);
         }        
         catch(SQLException e) {

@@ -26,6 +26,28 @@ public class MessageDaoImpl implements MessageDAO {
     public void update(Message msg) throws MessengerException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    @Override
+    public void softDeleteMessageBySender(Message msg){
+        int messageId = msg.getMessageId();
+        String query = "UPDATE `messages` SET `deleted_by_sender` = 1 WHERE `message_id` = ?";
+        DatabaseHelper.softDeleteMessage(query, messageId);
+    }
+    
+    @Override
+    public void softDeleteMessageByReceiver(Message msg){
+        int messageId = msg.getMessageId();
+        String query = "UPDATE `messages` SET `deleted_by_receiver` = 1 WHERE `message_id` = ?";
+        DatabaseHelper.softDeleteMessage(query, messageId);
+    }
+    
+    @Override
+    public void softDeleteMessageByModerator(Message msg){
+        int messageId = msg.getMessageId();
+        String query = "UPDATE `messages` SET `deleted_by_sender` = 1 `deleted_by_receiver` = 1 +"
+                + " WHERE `message_id` = ?";
+        DatabaseHelper.softDeleteMessage(query, messageId);
+    }
 
     @Override
     public void delete(Message msg) throws MessengerException {
@@ -34,7 +56,7 @@ public class MessageDaoImpl implements MessageDAO {
 
     @Override
     public Message getMessageById(int id) throws MessengerException {
-        Message msg = DatabaseHelper.fetchMessageOrNull("select * from message where id = ?", id);
+        Message msg = DatabaseHelper.fetchMessageOrNull("select * from messages where message_id = ?", id);
         if (msg == null) {
             throw new RuntimeException("Invalid message id: " + id);
         }

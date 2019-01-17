@@ -11,6 +11,7 @@ import giorgoskozindividualv2.dao.UserDAO;
 import giorgoskozindividualv2.model.Message;
 import giorgoskozindividualv2.model.User;
 import giorgoskozindividualv2.operations.interfaces.RegularUserOperationsInterface;
+import giorgoskozindividualv2.utils.Utils;
 import giorgoskozindividualv2.view.View;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,13 +49,39 @@ public class RegularUserOperations extends RestrictedUserOperations implements R
     }
 
     @Override
-    public int deleteOwnMessage() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void deleteOwnMessage() throws MessengerException {
+        this.readOwnMessages();
+        this.getView().displayMessaDeletionPrompt();
+        int userChoice = 0;
+        try {
+            userChoice = Utils.readInputInt();
+        } catch (Exception e) {
+            this.getView().displayInvalidOption();
+            mainMenu();
+        }
+        Message messageToDelete = new Message();
+//        try {
+            messageToDelete = this.getMdao().getMessageById(userChoice);
+//        } catch (Exception e) {
+//            this.getView().displayInvalidOption();
+//            mainMenu();
+//        }
+        //implement equals...
+        if (this.getUser().getId() == messageToDelete.getSender().getId()) {
+            this.getMdao().softDeleteMessageBySender(messageToDelete);
+        }else if (this.getUser().getId() == messageToDelete.getReceiver().getId()) {
+            this.getMdao().softDeleteMessageByReceiver(messageToDelete);
+        }else{
+            this.getView().displayInvalidOption();
+            mainMenu();
+        }
+        this.getView().displayMessageDeletionConfirmation();
+        mainMenu();
     }
 
     @Override
-    public List<User> getAllUsers() throws MessengerException {
-        return this.getUdao().getAllUsers();
+    public void showAllUsers() throws MessengerException {
+        this.getView().displayUsers(this.getUdao().getAllUserIdsAndUsernames());
     }
     
     @Override
@@ -68,7 +95,8 @@ public class RegularUserOperations extends RestrictedUserOperations implements R
                 deleteOwnMessage();
                 break;
             case 5:
-                getAllUsers();
+                showAllUsers();
+                mainMenu();
                 break;
         }
     }

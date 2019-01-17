@@ -93,7 +93,7 @@ public class RestrictedUserOperations implements RestrictedUserOperationsInterfa
         for (Message message : messages) {
             if ((user.getId() == message.getSender().getId()) && (message.getDeletedBySender() == 0)) {
                 nonDeletedMessages.add(message);
-            } else if ((user.getId() == message.getReceiver().getId()) && (message.getDeletedBySender() == 0)) {
+            } else if ((user.getId() == message.getReceiver().getId()) && (message.getDeletedByReceiver() == 0)) {
                 nonDeletedMessages.add(message);
             }
         }

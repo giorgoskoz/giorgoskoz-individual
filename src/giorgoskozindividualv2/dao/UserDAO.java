@@ -28,6 +28,6 @@ public interface UserDAO {
     
     List<User> getAllUsers() throws MessengerException;
     
-//    Map<Integer, String> getAllUserIdsAndUsernames() throws MessengerException;
+    Map<Integer, String> getAllUserIdsAndUsernames() throws MessengerException;
     
 }

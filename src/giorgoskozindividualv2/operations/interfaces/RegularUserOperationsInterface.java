@@ -19,8 +19,8 @@ public interface RegularUserOperationsInterface extends RestrictedUserOperations
     
     public Message sendMessage();
     
-    public int deleteOwnMessage();
+    public void deleteOwnMessage() throws MessengerException ;
     
-    public List<User> getAllUsers() throws MessengerException;
+    public void showAllUsers() throws MessengerException;
     
 }

@@ -14,6 +14,7 @@ import giorgoskozindividualv2.utils.Utils;
 import java.util.ArrayList;
 import giorgoskozindividualv2.model.Message;
 import giorgoskozindividualv2.model.User;
+import giorgoskozindividualv2.operations.LanguagePicker;
 import giorgoskozindividualv2.operations.RegularUserOperations;
 import giorgoskozindividualv2.operations.RestrictedUserOperations;
 import giorgoskozindividualv2.view.EngUI;
@@ -35,10 +36,11 @@ public class Main {
         
         Dao dao = new Dao();
         UserDAOImpl udao = new UserDAOImpl();
-        UI ui = new EngUI();
-        View view = new View(ui);
+//        UI ui = new EngUI();
+        LanguagePicker lp = new LanguagePicker();
+        View view = new View(lp.askForLanguage());
         MessageDaoImpl mdao = new MessageDaoImpl();
-        LoginSession login = new LoginSession(dao, ui, udao, mdao, view);
+        LoginSession login = new LoginSession(dao, lp.getUi(), udao, mdao, view);
         
         
 //        RestrictedUserOperations ruo = new RestrictedUserOperations(login.getLoggedUser(), udao, mdao, view);

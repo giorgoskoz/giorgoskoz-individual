@@ -5,10 +5,45 @@
  */
 package giorgoskozindividualv2.operations;
 
+import giorgoskozindividualv2.utils.Utils;
+import giorgoskozindividualv2.view.EngUI;
+import giorgoskozindividualv2.view.UI;
+
 /**
  *
  * @author giorgoskoz
  */
 public class LanguagePicker {
+    
+    UI ui;
+
+    public LanguagePicker() {
+    }
+
+    public UI getUi() {
+        return ui;
+    }
+
+    public void setUi(UI ui) {
+        this.ui = ui;
+    }
+    
+    public UI askForLanguage(){
+        int userChoice = 0;
+        System.out.println("\n1  |  English");
+        System.out.println("");
+        try {
+            userChoice = Utils.readInputInt();
+        } catch (Exception e) {
+            askForLanguage();
+        }
+        switch(userChoice){
+            case 1:
+                ui = new EngUI();
+                return new EngUI();
+            default:
+                return askForLanguage();
+        }
+    }
     
 }

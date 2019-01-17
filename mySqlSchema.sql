@@ -45,6 +45,7 @@ INSERT INTO `users` VALUES(default, 'alect', 'alect', 2, 0);
 INSERT INTO `users` VALUES(default, 'kwlopaidaras', '123', 2, 1);
 
 SELECT * FROM `users`;
+SELECT `user_id`, `username`, `banned` FROM `users` ORDER BY `username`;
 
 INSERT INTO `messages` VALUES(default, NOW(), 15, 16, 'which button on the key unlocks the aston again?', 0, 0);
 INSERT INTO `messages` VALUES(default, NOW(), 18, 16, 'oh so I get the lada again?', 0, 0);
@@ -53,6 +54,7 @@ INSERT INTO `messages` VALUES(default, NOW(), 16, 15, 'I\'m coming to pick it up
 INSERT INTO `messages` VALUES(default, NOW(), 16, 15, 'actually i\'m drunk and wanna come and see your piercing eyes...', 1, 0);
 INSERT INTO `messages` VALUES(default, NOW(), 18, 16, 'oh so I get the lada again?', 0, 0);
 INSERT INTO `messages` VALUES(1, NOW(), 13, 16, 'this is gonna get messy', 0, 0);
+INSERT INTO `messages` VALUES(default, NOW(), 15, 16, 'that was weid man, let\'s both delete that message and this one and never talk about it again', 0, 0);
 
 SELECT * FROM `messages` ORDER BY date_sent ASC;
 

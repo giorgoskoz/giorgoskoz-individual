@@ -33,7 +33,30 @@ public class EngUI implements UI {
                                           + "5" + separator + "Show All Users";
     private String goodbye = "See you in the shadows, sibling";
     private String invalidOption = "Invalid option, try again";
-
+    private String promptBanned = "Banned: ";
+    private String allUsersIntro = "List of all the users: ";
+    private String messageDeletionPromt = "Choose the id of the message to delete: ";
+    private String messageDeletionConfirmation = "Message deleted successfully";
+    
+    public String getMessageDeletionConfirmation(){
+        return messageDeletionConfirmation;
+    }
+    
+    @Override
+    public String getMessageDeletionPromt(){
+        return messageDeletionPromt;
+    }
+    
+    @Override
+    public String getAllUsersIntro(){
+        return allUsersIntro;
+    }
+    
+    @Override
+    public String getPromptBanned(){
+        return promptBanned;
+    }
+    
     @Override
     public String getPromptSender() {
         return promptSender;
