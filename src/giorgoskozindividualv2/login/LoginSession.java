@@ -5,6 +5,7 @@
  */
 package giorgoskozindividualv2.login;
 
+import giorgoskozindividualv2.MessengerException;
 import giorgoskozindividualv2.dao.Dao;
 import giorgoskozindividualv2.dao.MessageDAO;
 import giorgoskozindividualv2.dao.UserDAO;
@@ -33,7 +34,7 @@ public class LoginSession {
     private MessageDAO mdao;
     private View view;
     
-    public LoginSession(Dao dao, UI ui) {
+    public LoginSession(Dao dao, UI ui, UserDAO udao, MessageDAO mdao, View view) throws MessengerException {
         this.dao = dao;
         this.ui = ui;
         System.out.println(ui.getSplashScreen());;
@@ -44,6 +45,7 @@ public class LoginSession {
         System.out.println(ui.getWelcome());
         String existingUsername = usernameInputAndCheck(getUsersMap());
         loggedUser = passwordInputAndCheck(existingUsername, getUsersMap());
+        mainMenuDispacher(loggedUser, udao, mdao, view);
         
     }
     
@@ -90,14 +92,16 @@ public class LoginSession {
         return usersMap;
     }
     
-    public RestrictedUserOperations mainMenuDispacher(UserDAO udao, MessageDAO mdao, View view) {
+    public RestrictedUserOperations mainMenuDispacher(User user, UserDAO udao, MessageDAO mdao, View view) throws MessengerException {
         switch(user.getRole()){
             case RESTRICTED_USER:
                 RestrictedUserOperations restrictedUserOperations = new RestrictedUserOperations(user, udao, mdao, view);
-                return restrictedUserOperations;
+                restrictedUserOperations.mainMenu();
+                break;
             case REGULAR_USER:
                 RegularUserOperations regularUserOperations = new RegularUserOperations(user, udao, mdao, view);
-                return regularUserOperations;
+                regularUserOperations.mainMenu();
+                break;
         }
         return null;
     }

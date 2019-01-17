@@ -38,7 +38,7 @@ public class Main {
         UI ui = new EngUI();
         View view = new View(ui);
         MessageDaoImpl mdao = new MessageDaoImpl();
-        LoginSession login = new LoginSession(dao, ui);
+        LoginSession login = new LoginSession(dao, ui, udao, mdao, view);
         
         
 //        RestrictedUserOperations ruo = new RestrictedUserOperations(login.getLoggedUser(), udao, mdao, view);
