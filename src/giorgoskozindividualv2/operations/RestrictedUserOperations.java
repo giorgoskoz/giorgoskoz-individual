@@ -54,24 +54,22 @@ public class RestrictedUserOperations implements RestrictedUserOperationsInterfa
     
     @Override
     public void mainMenu() throws MessengerException {
+        int userChoice = 0;
         banCheck();
         view.displayRestrictedUserMenu();
-        int userChoice = Utils.readInputInt();
-        //userChoice sanity check here
-        switch(userChoice){
-            case 1:
-                view.displayGoodbye();
-                System.exit(0);
-            case 2:
-                readOwnMessages();
-                mainMenu();
-                break;
-            default:
-                view.displayInvalidOption();
-                mainMenu();
-                break;
+        try {
+            userChoice = Utils.readInputInt();
+        } catch (Exception e) {
+            view.displayInvalidOption();
+            mainMenu();
         }
         
+        //userChoice sanity check here?
+        if (userChoice != 1 && userChoice != 2) {
+            view.displayInvalidOption();
+            mainMenu();
+        }
+        userChoiceDispacher(userChoice);
     }
     
     @Override
@@ -107,6 +105,19 @@ public class RestrictedUserOperations implements RestrictedUserOperationsInterfa
             }
         }
         return nonDeletedMessages;
+    }
+    
+    public void userChoiceDispacher(int userChoice) throws MessengerException {
+        switch(userChoice){
+            case 1:
+                view.displayGoodbye();
+                System.exit(0);
+            case 2:
+                readOwnMessages();
+                mainMenu();
+                break;
+            }
+        
     }
     
     
