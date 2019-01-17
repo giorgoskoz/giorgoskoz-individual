@@ -12,7 +12,7 @@ import giorgoskozindividualv2.model.User;
  *
  * @author giorgoskoz
  */
-public interface ViewerOperationsInterface {
+public interface ViewerOperationsInterface extends RegularUserOperationsInterface {
     
     public void readOtherUserMessages() throws MessengerException;
     public void readAllMessages()  throws MessengerException;

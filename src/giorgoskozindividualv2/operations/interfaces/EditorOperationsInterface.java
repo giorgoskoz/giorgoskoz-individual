@@ -5,10 +5,15 @@
  */
 package giorgoskozindividualv2.operations.interfaces;
 
+import com.sun.xml.internal.ws.protocol.soap.MessageCreationException;
+import giorgoskozindividualv2.MessengerException;
+
 /**
  *
  * @author giorgoskoz
  */
-public interface EditorOperationsInterface {
+public interface EditorOperationsInterface extends ViewerOperationsInterface {
+    
+    void editOtherUserMessage() throws MessengerException;
     
 }

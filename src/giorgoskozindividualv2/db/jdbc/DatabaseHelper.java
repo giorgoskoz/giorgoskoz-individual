@@ -34,6 +34,20 @@ public class DatabaseHelper {
     private static final String USER = "giorgoskozindividualv2Admin";
     private static final String PASS = "giorgoskozindividualv2Admin";
     
+    static int updateMessageContent(String query, String content, int messageId){
+        int rowsAffected = 0;
+        try(Connection con = openConnection();
+            PreparedStatement ps = con.prepareStatement(query);
+        ) {
+            ps.setString(1, content);
+            ps.setInt(2, messageId);
+            rowsAffected = ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return rowsAffected;
+    }
+    
     static int insertNewMessage(String query, Timestamp dateSent, int senderId, int receiverId, String content) {
         int createdMessageId = -1;
         try(Connection con = openConnection();

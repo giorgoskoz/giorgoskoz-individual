@@ -138,6 +138,9 @@ public class RestrictedUserOperations implements RestrictedUserOperationsInterfa
             case VIEWER:
                 view.displayViewerMenu();
                 break;
+            case EDITOR:
+                view.displayEditorMenu();
+                break;
         }
     }
     

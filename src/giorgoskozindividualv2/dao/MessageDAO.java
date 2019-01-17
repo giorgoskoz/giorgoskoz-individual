@@ -41,4 +41,6 @@ public interface MessageDAO {
     
     void softDeleteMessageByModerator(Message msg);
     
+    int editMessage(Message message, String newContent);
+    
 }

@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 import giorgoskozindividualv2.model.User;
+import giorgoskozindividualv2.operations.EditorOperations;
 import giorgoskozindividualv2.operations.RegularUserOperations;
 import giorgoskozindividualv2.operations.RestrictedUserOperations;
 import giorgoskozindividualv2.operations.ViewerOperations;
@@ -106,6 +107,10 @@ public class LoginSession {
             case VIEWER:
                 ViewerOperations viewerOperations = new ViewerOperations(user, udao, mdao, view);
                 viewerOperations.mainMenu();
+                break;
+            case EDITOR:
+                EditorOperations editorOperations = new EditorOperations(user, udao, mdao, view);
+                editorOperations.mainMenu();
                 break;
         }
         return null;

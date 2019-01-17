@@ -43,6 +43,26 @@ public class View {
         System.out.println("\n" + ui.getViewerMainMenu() + "\n");
     }
     
+    public void displayEditorMenu(){
+        System.out.println("\n" + ui.getEditorMainMenu() + "\n");
+    }
+    
+    public void displayEditOtherUserMessageIntro() {
+        System.out.println("\n" + ui.getEditOtherUserMessageIntro() + "\n");
+    }
+    
+    public void displayEditMessagePrompt(){
+        System.out.println("\n" + ui.getEditMessagePrompt() + "\n");
+    }
+    
+    public void displayEditMessageSuccess() {
+        System.out.println("\n" + ui.getEditMessageSuccess() + "\n");
+    }
+    
+    public void displayEditMessageFailure() {
+        System.out.println("\n" + ui.getEditMessageFailure() + "\n");
+    }
+    
     public void displayReadOtherUserMessagesIntro(){
         System.out.println("\n" + ui.getReadOtherUserMessagesIntro() + "\n");
     }

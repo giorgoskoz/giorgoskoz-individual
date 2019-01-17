@@ -57,6 +57,16 @@ public interface UI {
     
     String getViewerMainMenu();
     
+    String getEditorMainMenu();
+    
+    String getEditOtherUserMessageIntro();
+    
+    String getEditMessagePrompt();
+    
+    String getEditMessageSuccess();
+    
+    String getEditMessageFailure();
+    
     String getGoodbye();
     
     String getInvalidOption();

@@ -34,6 +34,8 @@ public class EngUI implements UI {
     private String viewerMainMenu = regularUserMainMenu + "\n" 
                                           + "6" + separator + "Read other user messages\n" 
                                           + "7" + separator + "Read all messages";
+    private String editorMainMenu = viewerMainMenu + "\n" 
+                                          + "8" + separator + "Edit other user message";
     private String goodbye = "See you in the shadows, sibling";
     private String invalidOption = "Invalid option, try again";
     private String promptBanned = "Banned: ";
@@ -45,6 +47,28 @@ public class EngUI implements UI {
     private String messageSentSuccess = "Message sent successfully";
     private String readOtherUserMessagesIntro = "Choose the id of the user to see messages: ";
     private String readAllMessagesIntro = "List of all the Messages: ";
+    private String editOtherUserMessageIntro = "Choose the id of the message to edit";
+    private String editMessagePrompt = "Type the new content of the message";
+    private String editMessageSuccess = "Message edited successfully";
+    private String editMessageFailure = "Failed to edit message";
+    
+    @Override
+    public String getEditMessageFailure(){
+        return editMessageFailure;
+    }
+    
+    @Override
+    public String getEditMessageSuccess(){
+        return editMessageSuccess;
+    }
+    
+    public String getEditMessagePrompt() {
+        return editMessagePrompt;
+    }
+    
+    public String getEditOtherUserMessageIntro(){
+        return editOtherUserMessageIntro;
+    }
     
     public String getReadAllMessagesIntro(){
         return readAllMessagesIntro;
@@ -166,6 +190,11 @@ public class EngUI implements UI {
     @Override
     public String getViewerMainMenu() {
         return viewerMainMenu;
+    }
+    
+    @Override
+    public String getEditorMainMenu(){
+        return editorMainMenu;
     }
     
     @Override

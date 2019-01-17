@@ -24,6 +24,12 @@ public class MessageDaoImpl implements MessageDAO {
         int messageId = DatabaseHelper.insertNewMessage(query, dateSent, sender.getId(), receiver.getId(), content);
         return new Message(messageId, dateSent, sender, receiver, content, 0, 0);
     }
+    
+    @Override
+    public int editMessage(Message message, String newContent){
+        String query = "UPDATE messages SET content = ? WHERE message_id = ?";
+        return DatabaseHelper.updateMessageContent(query, newContent, message.getMessageId());
+    }
 
     @Override
     public void update(Message msg) throws MessengerException {
