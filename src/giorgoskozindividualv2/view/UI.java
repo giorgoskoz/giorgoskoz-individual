@@ -39,6 +39,8 @@ public interface UI {
     
     String getRestrictedUserMainMenu();
     
+    String getRegularUserMainMenu();
+    
     String getGoodbye();
     
     String getInvalidOption();

@@ -33,6 +33,10 @@ public class View {
         System.out.println("\n" + ui.getRestrictedUserMainMenu() + "\n");
     }
     
+    public void displayRegularUserMenu(){
+        System.out.println("\n" + ui.getRegularUserMainMenu() + "\n");
+    }
+    
     public void displayMessages(List<Message> messages){
         System.out.println("\n" + ui.getOwnMessagesIntro() + "\n");
         for (Message message : messages) {

@@ -17,6 +17,7 @@ import giorgoskozindividualv2.MessengerException;
 import giorgoskozindividualv2.model.Message;
 import giorgoskozindividualv2.model.User;
 import java.sql.Timestamp;
+import java.util.Map;
 
 /**
  *
@@ -30,6 +31,10 @@ public class DatabaseHelper {
     private static final String URL  = "jdbc:mysql://localhost:3306/giorgoskozindividualv2?serverTimezone=Europe/Athens&characterEncoding=utf-8&autoReconnect=true";
     private static final String USER = "giorgoskozindividualv2Admin";
     private static final String PASS = "giorgoskozindividualv2Admin";
+    
+    static Map<Integer, String> fetchAllUserIdsAndUsernames() throws MessengerException {
+        
+    }
     
     static User fetchUserOrNull(String query, int id) throws MessengerException {
         try (Connection con = openConnection();
@@ -195,5 +200,6 @@ public class DatabaseHelper {
         
         return msg;
     }
+    
     
 }

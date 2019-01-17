@@ -27,6 +27,10 @@ public class EngUI implements UI {
     private String restrictedUserMainMenu = "Choose an option:\n"
                                           + "1" + separator + "Quit\n" 
                                           + "2" + separator + "Show messages";
+    private String regularUserMainMenu = restrictedUserMainMenu + "\n" 
+                                          + "3" + separator + "Send Message\n" 
+                                          + "4" + separator + "Delete Message\n" 
+                                          + "5" + separator + "Show All Users";
     private String goodbye = "See you in the shadows, sibling";
     private String invalidOption = "Invalid option, try again";
 
@@ -100,6 +104,11 @@ public class EngUI implements UI {
         return restrictedUserMainMenu;
     }
 
+    @Override
+    public String getRegularUserMainMenu() {
+        return regularUserMainMenu;
+    }
+    
     @Override
     public String getGoodbye() {
         return goodbye;

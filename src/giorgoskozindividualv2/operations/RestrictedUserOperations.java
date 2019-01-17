@@ -54,22 +54,15 @@ public class RestrictedUserOperations implements RestrictedUserOperationsInterfa
     
     @Override
     public void mainMenu() throws MessengerException {
-        int userChoice = 0;
         banCheck();
-        view.displayRestrictedUserMenu();
-        try {
-            userChoice = Utils.readInputInt();
-        } catch (Exception e) {
-            view.displayInvalidOption();
-            mainMenu();
-        }
-        
-        //userChoice sanity check here?
+        int userChoice = 0;
+        userChoice = userDisplayMenuAndChoiceInputAndCheck(user);
         if (userChoice != 1 && userChoice != 2) {
             view.displayInvalidOption();
             mainMenu();
+        }else{
+            userChoiceDispacher(userChoice);
         }
-        userChoiceDispacher(userChoice);
     }
     
     @Override
@@ -118,6 +111,29 @@ public class RestrictedUserOperations implements RestrictedUserOperationsInterfa
                 break;
             }
         
+    }
+    
+    int userDisplayMenuAndChoiceInputAndCheck(User user) throws MessengerException {
+        int userChoice = 0;
+        banCheck();
+        menuDisplayDispacher(user);
+        try {
+            userChoice = Utils.readInputInt();
+        } catch (Exception e) {
+            view.displayInvalidOption();
+            mainMenu();
+        }
+        return userChoice;
+    }
+    
+    void menuDisplayDispacher(User user){
+        switch (user.getRole()) {
+            case RESTRICTED_USER:
+                view.displayRestrictedUserMenu();
+                break;
+            case REGULAR_USER:
+                view.displayRegularUserMenu();
+        }
     }
     
     

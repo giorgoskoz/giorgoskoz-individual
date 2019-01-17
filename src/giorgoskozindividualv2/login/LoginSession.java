@@ -6,6 +6,8 @@
 package giorgoskozindividualv2.login;
 
 import giorgoskozindividualv2.dao.Dao;
+import giorgoskozindividualv2.dao.MessageDAO;
+import giorgoskozindividualv2.dao.UserDAO;
 import giorgoskozindividualv2.utils.Utils;
 import giorgoskozindividualv2.view.EngUI;
 import java.util.ArrayList;
@@ -13,7 +15,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 import giorgoskozindividualv2.model.User;
+import giorgoskozindividualv2.operations.RegularUserOperations;
+import giorgoskozindividualv2.operations.RestrictedUserOperations;
 import giorgoskozindividualv2.view.UI;
+import giorgoskozindividualv2.view.View;
 
 /**
  *
@@ -21,16 +26,19 @@ import giorgoskozindividualv2.view.UI;
  */
 public class LoginSession {
     private User loggedUser;
-    private Dao udao;
+    private Dao dao;
     private UI ui;
+    private User user;
+    private UserDAO udao;
+    private MessageDAO mdao;
+    private View view;
     
-    
-    public LoginSession(Dao udao, UI ui) {
-        this.udao = udao;
+    public LoginSession(Dao dao, UI ui) {
+        this.dao = dao;
         this.ui = ui;
         System.out.println(ui.getSplashScreen());;
         int dailypassInput = Utils.readInputInt();
-        if (dailypassInput != udao.fetchDailypass()) {
+        if (dailypassInput != dao.fetchDailypass()) {
             System.exit(0);
         }
         System.out.println(ui.getWelcome());
@@ -45,7 +53,7 @@ public class LoginSession {
         boolean found = false;
         for (String value : usersMap.values()) {
             if (passwordInput.equals(value)) {
-                return udao.fetchUserByUsername(username);
+                return dao.fetchUserByUsername(username);
             }
         }
         if (!found) {
@@ -74,12 +82,24 @@ public class LoginSession {
     
     public Map getUsersMap(){
         Map<String, String> usersMap = new HashMap<>();
-        ArrayList<User> users = udao.fetchAllUsers(); 
+        ArrayList<User> users = dao.fetchAllUsers(); 
         for (User user : users) {
             usersMap.put(user.getUsername(), user.getPassword());
         }
         
         return usersMap;
+    }
+    
+    public RestrictedUserOperations mainMenuDispacher(UserDAO udao, MessageDAO mdao, View view) {
+        switch(user.getRole()){
+            case RESTRICTED_USER:
+                RestrictedUserOperations restrictedUserOperations = new RestrictedUserOperations(user, udao, mdao, view);
+                return restrictedUserOperations;
+            case REGULAR_USER:
+                RegularUserOperations regularUserOperations = new RegularUserOperations(user, udao, mdao, view);
+                return regularUserOperations;
+        }
+        return null;
     }
 
     public User getLoggedUser() {

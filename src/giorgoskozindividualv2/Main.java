@@ -39,8 +39,10 @@ public class Main {
         View view = new View(ui);
         MessageDaoImpl mdao = new MessageDaoImpl();
         LoginSession login = new LoginSession(dao, ui);
-        RestrictedUserOperations ruo = new RestrictedUserOperations(login.getLoggedUser(), udao, mdao, view);
-        ruo.mainMenu();
+        
+        
+//        RestrictedUserOperations ruo = new RestrictedUserOperations(login.getLoggedUser(), udao, mdao, view);
+//        ruo.mainMenu();
 //        List<User> allUsers = udao.getAllUsers();
 //        for (User user : allUsers) {
 //            System.out.println(user);

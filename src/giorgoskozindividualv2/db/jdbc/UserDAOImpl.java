@@ -9,6 +9,7 @@ import giorgoskozindividualv2.MessengerException;
 import giorgoskozindividualv2.dao.UserDAO;
 import giorgoskozindividualv2.model.User;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -53,5 +54,10 @@ public class UserDAOImpl implements UserDAO {
     public List<User> getAllUsers() throws MessengerException {
         return DatabaseHelper.fetchUsers("select * from users");
     }
+
+//    @Override
+//    public Map<Integer, String> getAllUserIdsAndUsernames() throws MessengerException {
+//        
+//    }
     
 }

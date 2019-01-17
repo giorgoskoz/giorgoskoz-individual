@@ -5,9 +5,11 @@
  */
 package giorgoskozindividualv2.operations.interfaces;
 
+import giorgoskozindividualv2.MessengerException;
 import giorgoskozindividualv2.model.Message;
 import giorgoskozindividualv2.model.User;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -15,10 +17,10 @@ import java.util.ArrayList;
  */
 public interface RegularUserOperationsInterface extends RestrictedUserOperationsInterface {
     
-    public Message sendMessage(int receiverUserId, String content);
-    public int deleteOwnMessage(int messageId);
-    //h parakatw xreiazetai? h' kalyptometha apo tin UserView.displayAllUsers?
-    public ArrayList<User> getAllUsers();
-    public int deleteOwnProfile();
+    public Message sendMessage();
+    
+    public int deleteOwnMessage();
+    
+    public List<User> getAllUsers() throws MessengerException;
     
 }

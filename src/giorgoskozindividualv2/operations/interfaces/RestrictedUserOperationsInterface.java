@@ -15,7 +15,9 @@ import giorgoskozindividualv2.model.User;
 public interface RestrictedUserOperationsInterface {
     
     public void banCheck()  throws MessengerException;
+    
     public void mainMenu()  throws MessengerException;
+    
     public void readOwnMessages() throws MessengerException;
     
 }

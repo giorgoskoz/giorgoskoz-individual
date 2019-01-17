@@ -8,6 +8,7 @@ package giorgoskozindividualv2.dao;
 import giorgoskozindividualv2.MessengerException;
 import giorgoskozindividualv2.model.User;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -26,5 +27,7 @@ public interface UserDAO {
     User getUser(String username, String password) throws MessengerException;
     
     List<User> getAllUsers() throws MessengerException;
+    
+//    Map<Integer, String> getAllUserIdsAndUsernames() throws MessengerException;
     
 }
