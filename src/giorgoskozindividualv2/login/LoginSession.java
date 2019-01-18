@@ -33,14 +33,21 @@ public class LoginSession {
     private User loggedUser;
     private Dao dao;
     private UI ui;
-    private User user;
     private UserDAO udao;
     private MessageDAO mdao;
     private View view;
-    
-    public LoginSession(Dao dao, UI ui, UserDAO udao, MessageDAO mdao, View view) throws MessengerException {
+
+    public LoginSession(Dao dao, UI ui, UserDAO udao, MessageDAO mdao, View view) {
         this.dao = dao;
         this.ui = ui;
+        this.udao = udao;
+        this.mdao = mdao;
+        this.view = view;
+    }
+    
+    
+    
+    public void attemptLogin() throws MessengerException {
         System.out.println(ui.getSplashScreen());;
         int dailypassInput = Utils.readInputInt();
         if (dailypassInput != dao.fetchDailypass()) {
@@ -50,7 +57,6 @@ public class LoginSession {
         String existingUsername = usernameInputAndCheck(getUsersMap());
         loggedUser = passwordInputAndCheck(existingUsername, getUsersMap());
         mainMenuDispacher(loggedUser, udao, mdao, view);
-        
     }
     
     public User passwordInputAndCheck(String username, Map<String, String> usersMap){
@@ -69,7 +75,7 @@ public class LoginSession {
         return null;
     }
     
-    public String usernameInputAndCheck(Map<String, String> usersMap){
+    public String usernameInputAndCheck(Map<String, String> usersMap) throws MessengerException {
         System.out.println(ui.getPromptUsername());
         String usernameInput = Utils.readInputString();
         boolean found = false;
@@ -81,7 +87,7 @@ public class LoginSession {
         }
         if (!found) {
                 System.out.println(ui.getPromptWrongUsername());
-                usernameInputAndCheck(usersMap);
+                attemptLogin();
             }
         return null;
     }

@@ -38,11 +38,11 @@ public class Main {
         FileLogger.initFile();
         Dao dao = new Dao();
         UserDAOImpl udao = new UserDAOImpl();
-//        UI ui = new EngUI();
         LanguagePicker lp = new LanguagePicker();
         View view = new View(lp.askForLanguage());
         MessageDaoImpl mdao = new MessageDaoImpl();
         LoginSession login = new LoginSession(dao, lp.getUi(), udao, mdao, view);
+        login.attemptLogin();
         
         
 //        RestrictedUserOperations ruo = new RestrictedUserOperations(login.getLoggedUser(), udao, mdao, view);
