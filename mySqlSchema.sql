@@ -37,12 +37,12 @@ CREATE TABLE `giorgoskozindividualv2`.`dailypass` (
   PRIMARY KEY (`dailypass_id`));
 
 INSERT INTO `users` VALUES(default, 'admin', 'admin', 6, 0);
-INSERT INTO `users` VALUES(default, 'agent47', 'agent47', 1, 0);
+INSERT INTO `users` VALUES(default, 'agent43', 'agent43', 1, 0);
 INSERT INTO `users` VALUES(default, 'jbond', '007', 2, 0);
 INSERT INTO `users` VALUES(default, 'q', 'q', 5, 0);
 INSERT INTO `users` VALUES(default, 'editor1', 'editor1', 4, 0);
 INSERT INTO `users` VALUES(default, 'alect', 'alect', 2, 0);
-INSERT INTO `users` VALUES(default, 'kwlopaidaras', '123', 2, 1);
+INSERT INTO `users` VALUES(default, 'alitirios', '123', 2, 1);
 INSERT INTO `users` VALUES(default, 'del1', 'del1', 5, 0);
 
 SELECT * FROM `users`;

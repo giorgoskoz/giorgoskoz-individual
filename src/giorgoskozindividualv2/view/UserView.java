@@ -22,7 +22,7 @@ public class UserView {
     public void displayMessageArrayList(ArrayList<Message> messages) {
         for (Message message : messages) {
             
-            System.out.println(EngUI.promptId + message.getMessageId() + );
+//            System.out.println(EngUI.promptId + message.getMessageId() + );
         }
     }
     

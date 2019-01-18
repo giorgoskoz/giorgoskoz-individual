@@ -19,8 +19,33 @@ import java.util.Map;
 public class UserDAOImpl implements UserDAO {
     
     @Override
-    public User create(String name, String password, int roleId) throws MessengerException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int deleteUser(int userId){
+        String query = "DELETE FROM users WHERE user_id = ?";
+        return DatabaseHelper.updateUser(query, userId);
+    }
+    
+    @Override
+    public int updateUserUsername(String username, int userId){
+        String query = "UPDATE users SET username = ? WHERE user_id = ?";
+        return DatabaseHelper.updateUser(query, username, userId);
+    }
+    
+    @Override
+    public int updateUserPassword(String password, int userId){
+        String query = "UPDATE users SET password = ? WHERE user_id = ?";
+        return DatabaseHelper.updateUser(query, password, userId);
+    }
+    
+    @Override
+    public int updateUserRole(int roleId, int userId){
+        String query = "UPDATE users SET role_id = ? WHERE user_id = ?";
+        return DatabaseHelper.updateUser(query, roleId, userId);
+    }
+    
+    @Override
+    public int createUser(String name, String password, int roleId) throws MessengerException {
+        String query = "INSERT INTO `users` VALUES(default, ?, ?, ?, 0)";
+        return DatabaseHelper.insertNewUser(query, name, password, roleId);
     }
 
     @Override

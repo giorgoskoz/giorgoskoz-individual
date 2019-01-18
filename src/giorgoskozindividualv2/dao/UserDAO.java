@@ -16,7 +16,15 @@ import java.util.Map;
  */
 public interface UserDAO {
     
-    User create(String name, String password, int roleId) throws MessengerException;
+    int createUser(String name, String password, int roleId) throws MessengerException;
+    
+    int updateUserUsername(String username, int userId);
+    
+    int updateUserPassword(String password, int userId);
+    
+    int updateUserRole(int roleId, int userId);
+    
+    int deleteUser(int userId);
     
     void update(User user) throws MessengerException;
     

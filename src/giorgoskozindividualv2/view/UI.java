@@ -63,6 +63,18 @@ public interface UI {
     
     String getDeleterMainMenu();
     
+    String getSuperAdminMenu();
+    
+    String getPromptRoleId();
+    
+    String getPromptSuccess();
+    
+    String getArchivedMessagesIntro();
+    
+    String getDeleteUserWarning();
+    
+    String getPromptFailed();
+    
     String getEditOtherUserMessageIntro();
     
     String getEditMessagePrompt();

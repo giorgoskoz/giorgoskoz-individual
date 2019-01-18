@@ -7,6 +7,7 @@ package giorgoskozindividualv2.operations;
 
 import giorgoskozindividualv2.utils.Utils;
 import giorgoskozindividualv2.view.EngUI;
+import giorgoskozindividualv2.view.ItaUI;
 import giorgoskozindividualv2.view.UI;
 
 /**
@@ -31,6 +32,7 @@ public class LanguagePicker {
     public UI askForLanguage(){
         int userChoice = 0;
         System.out.println("\n1  |  English");
+        System.out.println("\n2  |  Italiano");
         System.out.println("");
         try {
             userChoice = Utils.readInputInt();
@@ -41,6 +43,9 @@ public class LanguagePicker {
             case 1:
                 ui = new EngUI();
                 return new EngUI();
+            case 2:
+                ui = new ItaUI();
+                return new ItaUI();
             default:
                 return askForLanguage();
         }

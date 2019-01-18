@@ -144,6 +144,9 @@ public class RestrictedUserOperations implements RestrictedUserOperationsInterfa
             case DELETER:
                 view.displayDeleterMenu();
                 break;
+            case SUPER_ADMIN:
+                view.displaySuperAdminMenu();
+                break;
         }
     }
     

@@ -51,6 +51,18 @@ public class View {
         System.out.println("\n" + ui.getDeleterMainMenu() + "\n");
     }
     
+    public void displaySuperAdminMenu(){
+        System.out.println("\n" + ui.getSuperAdminMenu() + "\n");
+    }
+    
+    public void displayArchivedMessagesIntro(){
+            System.out.println("\n" + ui.getArchivedMessagesIntro() + "\n");
+    }
+    
+    public void displayDeleteUserWarning(){
+        System.out.println("\n" + ui.getDeleteUserWarning() + "\n");
+    }
+    
     public void displayEditOtherUserMessageIntro() {
         System.out.println("\n" + ui.getEditOtherUserMessageIntro() + "\n");
     }
@@ -97,6 +109,26 @@ public class View {
             System.out.println(ui.getPromptId() + entry.getKey() + ui.getSeparator()
                     + ui.getPromptUsername() + entry.getValue() + "\n");
         }
+    }
+    
+    public void displayUsernamePrompt(){
+        System.out.println("\n" + ui.getPromptUsername() + "\n");
+    }
+    
+    public void displayPasswordPrompt(){
+        System.out.println("\n" + ui.getPromptPassword() + "\n");
+    }
+    
+    public void displayRoleIdPrompt(){
+        System.out.println("\n" + ui.getPromptRoleId() + "\n");
+    }
+    
+    public void displayPromptSuccess(){
+        System.out.println("\n" + ui.getPromptSuccess() + "\n");
+    }
+    
+    public void displayPromptFailed(){
+        System.out.println("\n" + ui.getPromptFailed() + "\n");
     }
     
     public void displayMessage(Message message){

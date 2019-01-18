@@ -5,28 +5,30 @@
  */
 package giorgoskozindividualv2.operations.interfaces;
 
+import giorgoskozindividualv2.MessengerException;
+
 /**
  *
  * @author giorgoskoz
  */
 public interface SuperAdminOperationsInterface extends DeleterOperationsInterface {
     
-    void createUser();
+    void createUser() throws MessengerException;
     
-    void editUserUsername();
+    void editUserUsername() throws MessengerException;
     
-    void editUserPassword();
+    void editUserPassword() throws MessengerException;
     
-    void changeUserRole();
+    void changeUserRole() throws MessengerException;
     
-    void deleteUser();
+    void deleteUser() throws MessengerException;
     
-    void readArchivedMessages();
+    void readArchivedMessages() throws MessengerException;
     
-    void showBannedUsers();
-    
-    void banUser();
-    
-    void unBanUser();
+//    void showBannedUsers();
+//    
+//    void banUser();
+//    
+//    void unBanUser();
     
 }

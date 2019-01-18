@@ -9,7 +9,7 @@ package giorgoskozindividualv2.view;
  *
  * @author giorgoskoz
  */
-public class EngUI implements UI {
+public class ItaUI implements UI {
     
     private static final String ANSI_RED = "\u001B[31m";
     
@@ -41,60 +41,60 @@ public class EngUI implements UI {
 "               .                  \"\"MMMMMMMMMMMMM\"\"\" .  : . '   .        .\n" +
 "          .              .     .    .                      .         .\n" +
 ".                                         .          .         .";
-    private String promptUsername = "Username: ";
-    private String promptPassword = "Password: ";
-    private String promptWrongUsername = "No such username";
-    private String promptWrongPassword = "Wrong password";
+    private String promptUsername = "Nome utente: ";
+    private String promptPassword = "Parola d'ordine: ";
+    private String promptWrongUsername = "Nessun nome utente";
+    private String promptWrongPassword = "Parola d'ordine errata";
     private String promptId = "id: ";
-    private String promptDate = "Date: ";
-    private String promptSender = "Sender: ";
-    private String promptReceiver = "Receiver: ";
+    private String promptDate = "Data: ";
+    private String promptSender = "Mittente: ";
+    private String promptReceiver = "Ricevitore: ";
     private String separator = "  |  ";
-    private String ownMessagesIntro = "Your messages: (Newest at the bottom)";
-    private String youAreBanned = "**You are BANNED. Pray to the powers that be that this gets reverted**";
-    private String restrictedUserMainMenu = "Choose an option:\n"
-                                          + "1 " + separator + "Quit\n" 
-                                          + "2 " + separator + "Show messages";
+    private String ownMessagesIntro = "I tuoi messaggi: (Più nuovo in basso)";
+    private String youAreBanned = "**Sei bannato. Prega per i poteri che questo è stato ripristinato**";
+    private String restrictedUserMainMenu = "Scegliere un'opzione:\n"
+                                          + "1 " + separator + "Smettere\n" 
+                                          + "2 " + separator + "Mostra messaggi";
     private String regularUserMainMenu = restrictedUserMainMenu + "\n" 
-                                          + "3 " + separator + "Send Message\n" 
-                                          + "4 " + separator + "Delete Message\n" 
-                                          + "5 " + separator + "Show All Users";
+                                          + "3 " + separator + "Invia messaggio\n" 
+                                          + "4 " + separator + "Cancella il messaggio\n" 
+                                          + "5 " + separator + "Mostra tutti gli utenti";
     private String viewerMainMenu = regularUserMainMenu + "\n" 
                                           + "6 " + separator + "Read other user messages\n" 
                                           + "7 " + separator + "Read all messages";
     private String editorMainMenu = viewerMainMenu + "\n" 
-                                          + "8 " + separator + "Edit other user message";
+                                          + "8 " + separator + "Modifica altro messaggio utente";
     private String deleterMainMenu = editorMainMenu + "\n" 
-                                          + "9 " + separator + "Delete other user message";
+                                          + "9 " + separator + "Elimina altro messaggio utente";
     private String superAdminMenu = deleterMainMenu + "\n" 
-                                          + "10" + separator + "Create new user\n" 
-                                          + "11" + separator + "Edit user username\n" 
-                                          + "12" + separator + "Edit user password\n"
-                                          + "13" + separator + "Change user role\n"
-                                          + "14" + separator + "Delete user\n"
-                                          + "15" + separator + "Read archived messages";
-    private String goodbye = "See you in the shadows, sibling";
-    private String invalidOption = "Invalid option, try again";
-    private String promptBanned = "Banned: ";
-    private String allUsersIntro = "List of all the users: ";
-    private String messageDeletionPromt = "Choose the id of the message to delete: ";
-    private String messageDeletionConfirmation = "Message deleted successfully";
-    private String chooseUserToMessagePrompt = "Choose the id of the user to message: ";
-    private String inputMessagePrompt = "Type your message: ";
-    private String messageSentSuccess = "Message sent successfully";
-    private String readOtherUserMessagesIntro = "Choose the id of the user to see messages: ";
-    private String readAllMessagesIntro = "List of all the Messages: ";
-    private String editOtherUserMessageIntro = "Choose the id of the message to edit: ";
+                                          + "10" + separator + "Crea un nuovo utente\n" 
+                                          + "11" + separator + "Modifica nome utente di utente\n" 
+                                          + "12" + separator + "Modifica la password dell'utente\n"
+                                          + "13" + separator + "Cambia il ruolo dell'utente\n"
+                                          + "14" + separator + "Elimina utente\n"
+                                          + "15" + separator + "Leggi i messaggi archiviati";
+    private String goodbye = "Ci vediamo nell'ombra, fratello";
+    private String invalidOption = "Opzione non valida, riprova";
+    private String promptBanned = "Vietato: ";
+    private String allUsersIntro = "Elenco di tutti gli utenti: ";
+    private String messageDeletionPromt = "Scegli l'id del messaggio da eliminare: ";
+    private String messageDeletionConfirmation = "Messaggio cancellato con successo";
+    private String chooseUserToMessagePrompt = "Scegli l'id dell'utente per messaggio: ";
+    private String inputMessagePrompt = "Scrivi il tuo messaggio: ";
+    private String messageSentSuccess = "Messaggio inviato con successo";
+    private String readOtherUserMessagesIntro = "Scegli l'ID dell'utente per vedere i messaggi: ";
+    private String readAllMessagesIntro = "Elenco di tutti i messaggi: ";
+    private String editOtherUserMessageIntro = "Scegli l'id del messaggio da modificare: ";
     private String editMessagePrompt = "Type the new content of the message: ";
-    private String editMessageSuccess = "Message edited successfully";
-    private String editMessageFailure = "Failed to edit message";
-    private String messageDeletionFailure = "Failed to delete message";
-    private String promptRoleId = "Role id: ";
-    private String promptSuccess = "Success";
-    private String promptFailed = "Failed";
-    private String archivedMessagesIntro = "List of archived messages: ";
-    private String deleteUserWarning = "Chose the id of the user to be DELETED\n"
-                                     + "***WARNING THIS IS FINAL***";
+    private String editMessageSuccess = "Digita il nuovo contenuto del messaggio";
+    private String editMessageFailure = "Impossibile modificare il messaggio";
+    private String messageDeletionFailure = "Impossibile eliminare il messaggio";
+    private String promptRoleId = "Ruolo id: ";
+    private String promptSuccess = "Successo";
+    private String promptFailed = "Mancato";
+    private String archivedMessagesIntro = "Elenco di messaggi archiviati: ";
+    private String deleteUserWarning = "Scegli l'ID dell'utente da ELIMINARE\n"
+                                     + "***ATTENZIONE QUESTA E 'FINALE***";
     
     @Override
     public String getDeleteUserWarning(){
@@ -292,28 +292,3 @@ public class EngUI implements UI {
     }
     
 }
-    
-
-//    public static void welcome1(){
-//        System.out.println("Welcome 1");
-//    }
-//    
-//    public static void welcome2(){
-//        System.out.println("Welcome 2");
-//    }
-//    
-//    public static void promptUsername(){
-//        System.out.println("Username: ");
-//    }
-//    
-//    public static void promptPassword(){
-//        System.out.println("Password: ");
-//    }
-//    
-//    public static void promptWrongUsername(){
-//        System.out.println("No such username");
-//    }
-//    
-//    public static void promptWrongPassword(){
-//        System.out.println("Wrong password");
-//    }

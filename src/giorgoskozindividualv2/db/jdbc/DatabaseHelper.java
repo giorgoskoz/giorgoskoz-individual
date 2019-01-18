@@ -34,6 +34,62 @@ public class DatabaseHelper {
     private static final String USER = "giorgoskozindividualv2Admin";
     private static final String PASS = "giorgoskozindividualv2Admin";
     
+    static int updateUser(String query, String parameter, int userId){
+        int rowsAffected = 0;
+        try(Connection con = openConnection();
+            PreparedStatement ps = con.prepareStatement(query);
+        ) {
+            ps.setString(1, parameter);
+            ps.setInt(2, userId);
+            rowsAffected = ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return rowsAffected;
+    }
+    
+    static int updateUser(String query, int roleId, int userId){
+        int rowsAffected = 0;
+        try(Connection con = openConnection();
+            PreparedStatement ps = con.prepareStatement(query);
+        ) {
+            ps.setInt(1, roleId);
+            ps.setInt(2, userId);
+            rowsAffected = ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return rowsAffected;
+    }
+    
+    static int updateUser(String query, int userId){
+        int rowsAffected = 0;
+        try(Connection con = openConnection();
+            PreparedStatement ps = con.prepareStatement(query);
+        ) {
+            ps.setInt(1, userId);
+            rowsAffected = ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return rowsAffected;
+    }
+    
+    static int insertNewUser(String query, String username, String password, int roleId){
+        int rowsAffected = 0;
+        try(Connection con = openConnection();
+            PreparedStatement ps = con.prepareStatement(query);
+        ) {
+            ps.setString(1, username);
+            ps.setString(2, password);
+            ps.setInt(3, roleId);
+            rowsAffected = ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return rowsAffected;
+    }
+    
     static int updateMessageContent(String query, String content, int messageId){
         int rowsAffected = 0;
         try(Connection con = openConnection();
