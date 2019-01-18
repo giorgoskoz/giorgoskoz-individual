@@ -39,7 +39,7 @@ public interface MessageDAO {
     
     void softDeleteMessageByReceiver(Message msg);
     
-    void softDeleteMessageByModerator(Message msg);
+    int softDeleteMessageByModerator(Message msg);
     
     int editMessage(Message message, String newContent);
     

@@ -36,6 +36,8 @@ public class EngUI implements UI {
                                           + "7" + separator + "Read all messages";
     private String editorMainMenu = viewerMainMenu + "\n" 
                                           + "8" + separator + "Edit other user message";
+    private String deleterMainMenu = editorMainMenu + "\n" 
+                                          + "9" + separator + "Delete other user message"; 
     private String goodbye = "See you in the shadows, sibling";
     private String invalidOption = "Invalid option, try again";
     private String promptBanned = "Banned: ";
@@ -51,6 +53,17 @@ public class EngUI implements UI {
     private String editMessagePrompt = "Type the new content of the message";
     private String editMessageSuccess = "Message edited successfully";
     private String editMessageFailure = "Failed to edit message";
+    private String messageDeletionFailure = "Failed to delete message";
+    
+    @Override
+    public String getMessageDeletionFailure(){
+        return messageDeletionFailure;
+    }
+    
+    @Override
+    public String getDeleterMainMenu(){
+        return deleterMainMenu;
+    }
     
     @Override
     public String getEditMessageFailure(){

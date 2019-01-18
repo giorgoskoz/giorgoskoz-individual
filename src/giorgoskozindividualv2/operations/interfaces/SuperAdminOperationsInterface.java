@@ -9,9 +9,24 @@ package giorgoskozindividualv2.operations.interfaces;
  *
  * @author giorgoskoz
  */
-public interface SuperAdminOperationsInterface {
+public interface SuperAdminOperationsInterface extends DeleterOperationsInterface {
     
-    public void banUser();
-    public void unBanUser();
+    void createUser();
+    
+    void editUserUsername();
+    
+    void editUserPassword();
+    
+    void changeUserRole();
+    
+    void deleteUser();
+    
+    void readArchivedMessages();
+    
+    void showBannedUsers();
+    
+    void banUser();
+    
+    void unBanUser();
     
 }

@@ -141,6 +141,9 @@ public class RestrictedUserOperations implements RestrictedUserOperationsInterfa
             case EDITOR:
                 view.displayEditorMenu();
                 break;
+            case DELETER:
+                view.displayDeleterMenu();
+                break;
         }
     }
     

@@ -12,6 +12,7 @@ import giorgoskozindividualv2.dao.UserDAO;
 import giorgoskozindividualv2.model.Message;
 import giorgoskozindividualv2.model.User;
 import giorgoskozindividualv2.operations.interfaces.EditorOperationsInterface;
+import giorgoskozindividualv2.utils.FileLogger;
 import giorgoskozindividualv2.utils.Utils;
 import giorgoskozindividualv2.view.View;
 import java.util.List;
@@ -44,9 +45,7 @@ public class EditorOperations extends ViewerOperations implements EditorOperatio
 
     @Override
     public void editOtherUserMessage() throws MessengerException {
-        this.getView().displayReadAllMessagesIntro();
-        List<Message> messages = this.getMdao().getAllMessages();
-        this.getView().displayMessages(messages);
+        readAllMessages();
         this.getView().displayEditOtherUserMessageIntro();
         int userChoice = 0;
         try {
@@ -67,8 +66,8 @@ public class EditorOperations extends ViewerOperations implements EditorOperatio
         int linesAffected = this.getMdao().editMessage(messageToEdit, newContent);
         if (linesAffected != 0) {
             this.getView().displayEditMessageSuccess();
+            FileLogger.writeToFile(messageToEdit, newContent);
         }
-        mainMenu();
         
     }
     
@@ -78,6 +77,7 @@ public class EditorOperations extends ViewerOperations implements EditorOperatio
         switch(userChoice){
             case 8:
                 editOtherUserMessage();
+                mainMenu();
                 break;
         }
     }

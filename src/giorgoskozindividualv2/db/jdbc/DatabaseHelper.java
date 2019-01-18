@@ -30,7 +30,7 @@ public class DatabaseHelper {
 //    private static final String URL  = "jdbc:mysql://localhost:3306/messenger?serverTimezone=UTC&characterEncoding=utf-8&autoReconnect=true";
 //    private static final String USER = "messAdmin";
 //    private static final String PASS = "messAdmin123";
-    private static final String URL  = "jdbc:mysql://localhost:3306/giorgoskozindividualv2?serverTimezone=Europe/Athens&characterEncoding=utf-8&autoReconnect=true";
+    private static final String URL  = "jdbc:mysql://localhost:3306/giorgoskozindividualv2?serverTimezone=Europe/Athens&seUnicode=true&characterEncoding=utf-8&autoReconnect=true";
     private static final String USER = "giorgoskozindividualv2Admin";
     private static final String PASS = "giorgoskozindividualv2Admin";
     
@@ -63,9 +63,9 @@ public class DatabaseHelper {
             }
             try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
-                    createdMessageId = generatedKeys.getInt("message_id");
+                    createdMessageId = generatedKeys.getInt(1);
                 } else {
-                    throw new SQLException("Creating user failed, no ID obtained.");
+                    throw new SQLException("Creating message failed, no ID obtained.");
                 }
             } catch (Exception e) {
             }
@@ -75,15 +75,17 @@ public class DatabaseHelper {
         return createdMessageId;
     }
     
-    static void softDeleteMessage(String query, int messageId){
+    static int softDeleteMessage(String query, int messageId){
+        int rowsAffected = 0;
         try(Connection con = openConnection();
             PreparedStatement ps = con.prepareStatement(query);
         ) {
             ps.setInt(1, messageId);
-            ps.executeUpdate();
+            rowsAffected = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        return rowsAffected;
     }
     
     static Map<Integer, String> fetchAllUserIdsUsernames() throws MessengerException {

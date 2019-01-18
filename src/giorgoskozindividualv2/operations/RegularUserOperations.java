@@ -12,6 +12,7 @@ import giorgoskozindividualv2.db.jdbc.DatabaseHelper;
 import giorgoskozindividualv2.model.Message;
 import giorgoskozindividualv2.model.User;
 import giorgoskozindividualv2.operations.interfaces.RegularUserOperationsInterface;
+import giorgoskozindividualv2.utils.FileLogger;
 import giorgoskozindividualv2.utils.Utils;
 import giorgoskozindividualv2.view.View;
 import java.sql.Time;
@@ -73,9 +74,9 @@ public class RegularUserOperations extends RestrictedUserOperations implements R
         long now = date.getTime();
         Timestamp dateSent = new Timestamp(now);
         Message messageSent = this.getMdao().create(dateSent, this.getUser(), receiver, content);
-        //file write here
+        FileLogger.writeToFile(messageSent);
         this.getView().displayMessageSentSuccess();
-        mainMenu();
+        
     }
 
     @Override
@@ -105,7 +106,7 @@ public class RegularUserOperations extends RestrictedUserOperations implements R
             mainMenu();
         }
         this.getView().displayMessageDeletionConfirmation();
-        mainMenu();
+        
     }
 
     @Override
@@ -119,9 +120,11 @@ public class RegularUserOperations extends RestrictedUserOperations implements R
         switch(userChoice){
             case 3:
                 sendMessage();
+                mainMenu();
                 break;
             case 4:
                 deleteOwnMessage();
+                mainMenu();
                 break;
             case 5:
                 showAllUsers();

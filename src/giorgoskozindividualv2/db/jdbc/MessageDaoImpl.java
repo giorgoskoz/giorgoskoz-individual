@@ -51,11 +51,10 @@ public class MessageDaoImpl implements MessageDAO {
     }
     
     @Override
-    public void softDeleteMessageByModerator(Message msg){
+    public int softDeleteMessageByModerator(Message msg){
         int messageId = msg.getMessageId();
-        String query = "UPDATE `messages` SET `deleted_by_sender` = 1 `deleted_by_receiver` = 1 +"
-                + " WHERE `message_id` = ?";
-        DatabaseHelper.softDeleteMessage(query, messageId);
+        String query = "UPDATE `messages` SET `deleted_by_sender` = 1, `deleted_by_receiver` = 1 WHERE `message_id` = ?";
+        return DatabaseHelper.softDeleteMessage(query, messageId);
     }
 
     @Override

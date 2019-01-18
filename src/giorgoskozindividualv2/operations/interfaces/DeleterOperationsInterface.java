@@ -5,10 +5,14 @@
  */
 package giorgoskozindividualv2.operations.interfaces;
 
+import giorgoskozindividualv2.MessengerException;
+
 /**
  *
  * @author giorgoskoz
  */
-public interface DeleterOperationsInterface {
+public interface DeleterOperationsInterface extends EditorOperationsInterface {
+    
+    public void deleteOtherUserMessage() throws MessengerException;
     
 }

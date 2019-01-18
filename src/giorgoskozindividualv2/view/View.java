@@ -47,6 +47,10 @@ public class View {
         System.out.println("\n" + ui.getEditorMainMenu() + "\n");
     }
     
+    public void displayDeleterMenu(){
+        System.out.println("\n" + ui.getDeleterMainMenu() + "\n");
+    }
+    
     public void displayEditOtherUserMessageIntro() {
         System.out.println("\n" + ui.getEditOtherUserMessageIntro() + "\n");
     }
@@ -119,6 +123,10 @@ public class View {
     
     public void displayMessageDeletionConfirmation(){
         System.out.println("\n" + ui.getMessageDeletionConfirmation() + "\n");
+    }
+    
+    public void displayMessageDeletionFailure(){
+        System.out.println("\n" + ui.getMessageDeletionFailure() + "\n");
     }
     
     public void displayInputMessagePrompt(){

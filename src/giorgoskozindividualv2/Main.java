@@ -17,6 +17,7 @@ import giorgoskozindividualv2.model.User;
 import giorgoskozindividualv2.operations.LanguagePicker;
 import giorgoskozindividualv2.operations.RegularUserOperations;
 import giorgoskozindividualv2.operations.RestrictedUserOperations;
+import giorgoskozindividualv2.utils.FileLogger;
 import giorgoskozindividualv2.view.EngUI;
 import giorgoskozindividualv2.view.UI;
 import giorgoskozindividualv2.view.View;
@@ -34,6 +35,7 @@ public class Main {
     public static void main(String[] args) throws MessengerException {
         // TODO code application logic here
         
+        FileLogger.initFile();
         Dao dao = new Dao();
         UserDAOImpl udao = new UserDAOImpl();
 //        UI ui = new EngUI();

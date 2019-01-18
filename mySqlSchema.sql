@@ -43,6 +43,7 @@ INSERT INTO `users` VALUES(default, 'q', 'q', 5, 0);
 INSERT INTO `users` VALUES(default, 'editor1', 'editor1', 4, 0);
 INSERT INTO `users` VALUES(default, 'alect', 'alect', 2, 0);
 INSERT INTO `users` VALUES(default, 'kwlopaidaras', '123', 2, 1);
+INSERT INTO `users` VALUES(default, 'del1', 'del1', 5, 0);
 
 SELECT * FROM `users`;
 SELECT `user_id`, `username`, `banned` FROM `users` ORDER BY `username`;
@@ -58,7 +59,7 @@ INSERT INTO `messages` VALUES(default, NOW(), 15, 16, 'that was weid man, let\'s
 
 SELECT * FROM `messages` ORDER BY date_sent ASC;
 
-UPDATE MESSAGES SET `deleted_by_sender` = 0 WHERE `message_id` = 15; 
+UPDATE MESSAGES SET `deleted_by_sender` = 1,`deleted_by_receiver` = 1 WHERE `message_id` = 15; 
 
 DELETE FROM `messages` WHERE `message_id` = 13;
 
@@ -67,3 +68,12 @@ SELECT * FROM `messages` WHERE `sender_id` = 16 || `receiver_id` = 16 ORDER BY `
 INSERT INTO `dailypass` VALUES(default, 'makeleio', 1111);
 
 select * from messages where (sender_id = 16 or receiver_id = 16) AND deleted_by_sender = 0 ORDER BY date_sent ASC;
+
+ALTER TABLE `giorgoskozindividualv2`.`messages` 
+DROP FOREIGN KEY `fk_message_receiver_id`;
+ALTER TABLE `giorgoskozindividualv2`.`messages` 
+ADD CONSTRAINT `fk_message_receiver_id`
+  FOREIGN KEY (`receiver_id`)
+  REFERENCES `giorgoskozindividualv2`.`users` (`user_id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;

@@ -39,6 +39,8 @@ public interface UI {
     
     String getMessageDeletionConfirmation();
     
+    String getMessageDeletionFailure();
+    
     String getChooseUserToMessagePrompt();
     
     String getInputMessagePrompt();
@@ -58,6 +60,8 @@ public interface UI {
     String getViewerMainMenu();
     
     String getEditorMainMenu();
+    
+    String getDeleterMainMenu();
     
     String getEditOtherUserMessageIntro();
     

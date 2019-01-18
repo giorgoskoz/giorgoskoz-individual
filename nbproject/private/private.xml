@@ -3,22 +3,34 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/operations/interfaces/EditorOperationsInterface.java</file>
-            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/Main.java</file>
+            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/view/MessageView.java</file>
+            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/model/BannedEnum.java</file>
             <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/operations/RegularUserOperations.java</file>
-            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/operations/interfaces/RestrictedUserOperationsInterface.java</file>
-            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/operations/interfaces/DeleterOperationsInterface.java</file>
             <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/model/User.java</file>
-            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/login/LoginSession.java</file>
-            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/view/EngUI.java</file>
+            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/operations/EditorOperations.java</file>
             <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/view/UserView.java</file>
             <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/operations/RestrictedUserOperations.java</file>
-            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/operations/interfaces/SuperAdminOperationsInterface.java</file>
-            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/operations/interfaces/AdminOperationsInterface.java</file>
+            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/model/RoleEnum.java</file>
+            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/operations/DeleterOperations.java</file>
+            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/operations/ViewerOperations.java</file>
             <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/model/Message.java</file>
             <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/operations/interfaces/RegularUserOperationsInterface.java</file>
+            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/operations/interfaces/EditorOperationsInterface.java</file>
+            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/Main.java</file>
+            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/operations/interfaces/RestrictedUserOperationsInterface.java</file>
+            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/operations/interfaces/DeleterOperationsInterface.java</file>
+            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/operations/LanguagePicker.java</file>
+            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/dao/MessageDAO.java</file>
+            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/db/jdbc/MessageDaoImpl.java</file>
+            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/login/LoginSession.java</file>
+            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/utils/FileLogger.java</file>
+            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/view/EngUI.java</file>
+            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/db/jdbc/DatabaseHelper.java</file>
+            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/view/View.java</file>
             <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/operations/interfaces/ViewerOperationsInterface.java</file>
-            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/dao/Dao.java</file>
+            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/db/jdbc/UserDAOImpl.java</file>
+            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/utils/Utils.java</file>
+            <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/dao/UserDAO.java</file>
             <file>file:/D:/Documents/Bootcamp/java/__projects/NetBeansProjects/giorgoskozIndividualV2/src/giorgoskozindividualv2/view/UI.java</file>
         </group>
     </open-files>

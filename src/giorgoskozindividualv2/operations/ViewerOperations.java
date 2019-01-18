@@ -13,6 +13,7 @@ import giorgoskozindividualv2.model.User;
 import giorgoskozindividualv2.operations.interfaces.ViewerOperationsInterface;
 import giorgoskozindividualv2.utils.Utils;
 import giorgoskozindividualv2.view.View;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -61,15 +62,24 @@ public class ViewerOperations extends RegularUserOperations implements ViewerOpe
         }
         List<Message> messages = this.getMdao().getMessagesOfUser(user);
         this.getView().displayMessages(messages);
-        mainMenu();
     }
 
     @Override
     public void readAllMessages() throws MessengerException {
         this.getView().displayReadAllMessagesIntro();
         List<Message> messages = this.getMdao().getAllMessages();
+        messages = filterOutDeletedMessagesByBoth(messages);
         this.getView().displayMessages(messages);
-        mainMenu();
+    }
+    
+    public List<Message> filterOutDeletedMessagesByBoth(List<Message> messages) {
+        List<Message> nonDeletedMessages = new ArrayList<Message>();
+        for (Message message : messages) {
+            if ((message.getDeletedByReceiver() == 0) && (message.getDeletedBySender() == 0)) {
+                nonDeletedMessages.add(message);
+            }
+        }
+        return nonDeletedMessages;
     }
     
     @Override
@@ -78,9 +88,11 @@ public class ViewerOperations extends RegularUserOperations implements ViewerOpe
         switch(userChoice){
             case 6:
                 readOtherUserMessages();
+                mainMenu();
                 break;
             case 7:
                 readAllMessages();
+                mainMenu();
                 break;
         }
     }

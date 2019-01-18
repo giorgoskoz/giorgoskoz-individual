@@ -16,9 +16,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 import giorgoskozindividualv2.model.User;
+import giorgoskozindividualv2.operations.DeleterOperations;
 import giorgoskozindividualv2.operations.EditorOperations;
 import giorgoskozindividualv2.operations.RegularUserOperations;
 import giorgoskozindividualv2.operations.RestrictedUserOperations;
+import giorgoskozindividualv2.operations.SuperAdminOperations;
 import giorgoskozindividualv2.operations.ViewerOperations;
 import giorgoskozindividualv2.view.UI;
 import giorgoskozindividualv2.view.View;
@@ -111,6 +113,14 @@ public class LoginSession {
             case EDITOR:
                 EditorOperations editorOperations = new EditorOperations(user, udao, mdao, view);
                 editorOperations.mainMenu();
+                break;
+            case DELETER:
+                DeleterOperations deleterOperations = new DeleterOperations(user, udao, mdao, view);
+                deleterOperations.mainMenu();
+                break;
+            case SUPER_ADMIN:
+                SuperAdminOperations superAdminOperations = new SuperAdminOperations(user, udao, mdao, view);
+                superAdminOperations.mainMenu();
                 break;
         }
         return null;
